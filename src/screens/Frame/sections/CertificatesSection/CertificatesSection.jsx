@@ -6,17 +6,17 @@ const CertificatesSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const certificates = [
-    { id: 1, src: "static/img/Acc.png", alt: "Certificate 1" },
-    { id: 2, src: "static/img/Gsa.png", alt: "Certificate 2" },
-    { id: 3, src: "static/img/hpe_certificate.png", alt: "Certificate 3" },
-    { id: 4, src: "static/img/jpm.png", alt: "Certificate 4" },
-    { id: 5, src: "static/img/Sky.png", alt: "Certificate 5" },
-    { id: 6, src: "static/img/dv.png", alt: "Certificate 6" },
-    { id: 7, src: "static/img/iml.png", alt: "Certificate 7" },
-    { id: 8, src: "static/img/itdl.png", alt: "Certificate 8" },
-    { id: 9, src: "static/img/itml.png", alt: "Certificate 9" },
-    { id: 10, src: "static/img/pandas.png", alt: "Certificate 10" },
-    { id: 11, src: "static/img/ts.png", alt: "Certificate 11" },
+    { id: 1, src: "/img/Acc.png", alt: "Certificate 1" },
+    { id: 2, src: "/img/Gsa.png", alt: "Certificate 2" },
+    { id: 3, src: "/img/hpe_certificate.png", alt: "Certificate 3" },
+    { id: 4, src: "/img/jpm.png", alt: "Certificate 4" },
+    { id: 5, src: "/img/Sky.png", alt: "Certificate 5" },
+    { id: 6, src: "/img/dv.png", alt: "Certificate 6" },
+    { id: 7, src: "/img/iml.png", alt: "Certificate 7" },
+    { id: 8, src: "/img/itdl.png", alt: "Certificate 8" },
+    { id: 9, src: "/img/itml.png", alt: "Certificate 9" },
+    { id: 10, src: "/img/pandas.png", alt: "Certificate 10" },
+    { id: 11, src: "/img/ts.png", alt: "Certificate 11" },
   ];
 
   const certificatesPerPage = 6;
@@ -49,6 +49,10 @@ const CertificatesSection = () => {
                 src={cert.src}
                 alt={cert.alt}
                 className="w-full h-auto rounded-lg shadow-md"
+                onError={(e) => {
+                  console.error("Failed to load certificate:", cert.src);
+                  e.target.style.display = 'none';
+                }}
               />
             </CardContent>
           </Card>

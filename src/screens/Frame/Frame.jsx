@@ -20,27 +20,16 @@ export const Frame = () => {
 
   // Set <html> class and persist to localStorage
   useEffect(() => {
-    console.log("[FRAME DEBUG] isDark changed to:", isDark);
-    console.log("[FRAME DEBUG] Current <html> class before change:", document.documentElement.className);
-    
     if (isDark) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      console.log("[FRAME DEBUG] Added 'dark' class to <html>");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      console.log("[FRAME DEBUG] Removed 'dark' class from <html>");
     }
-    
-    console.log("[FRAME DEBUG] Final <html> class:", document.documentElement.className);
-    console.log("[FRAME DEBUG] localStorage theme:", localStorage.getItem("theme"));
   }, [isDark]);
 
-  const toggleMode = () => {
-    console.log("[FRAME DEBUG] toggleMode called, current isDark:", isDark);
-    setIsDark((prev) => !prev);
-  };
+  const toggleMode = () => setIsDark((prev) => !prev);
 
   return (
     // Removed fixed dark background here

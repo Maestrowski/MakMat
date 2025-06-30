@@ -38,7 +38,7 @@ const ContactSection = () => {
     },
     {
       label: "Resume",
-      href: "/static/img/My_CV.pdf",
+              href: "/img/My_CV.pdf",
       alt: "Resume",
       isDownload: true,
     },
