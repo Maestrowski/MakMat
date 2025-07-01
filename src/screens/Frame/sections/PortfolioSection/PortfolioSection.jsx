@@ -86,19 +86,19 @@ const PortfolioSection = () => {
   );
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-center items-center py-20">
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-5xl font-bold mb-12">Projects</h1>
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-center items-center py-12 sm:py-16 md:py-20">
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Projects</h1>
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8">
         {displayedProjects.map((project, index) => (
           <Card
             key={index}
-            className="bg-[#e6f0fa] dark:bg-[#2f3647] rounded-[20px] p-6 flex flex-col h-full"
+            className="bg-[#e6f0fa] dark:bg-[#2f3647] rounded-[20px] p-4 sm:p-6 flex flex-col h-full"
           >
             <CardContent className="p-0">
-              <h2 className="text-[#2563eb] dark:text-[#0f52ba] text-xl font-bold mb-2">
+              <h2 className="text-[#2563eb] dark:text-[#0f52ba] text-lg sm:text-xl md:text-2xl font-bold mb-2">
                 {project.title}
               </h2>
-              <ul className="text-black dark:text-[#b3c6e0] text-base font-light list-disc list-inside">
+              <ul className="text-black dark:text-[#b3c6e0] text-sm sm:text-base font-light list-disc list-inside">
                 {project.description.map((line, lineIndex) => (
                   <li key={lineIndex}>{line}</li>
                 ))}
@@ -107,7 +107,7 @@ const PortfolioSection = () => {
           </Card>
         ))}
       </div>
-      <nav className="flex justify-center mt-8 space-x-4">
+      <nav className="flex justify-center mt-8 space-x-2 sm:space-x-4">
         <Button
           onClick={() => setCurrentPage(1)}
           className={

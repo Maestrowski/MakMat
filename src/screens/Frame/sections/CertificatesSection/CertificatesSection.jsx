@@ -36,19 +36,19 @@ const CertificatesSection = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-center items-center py-20">
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-5xl font-bold mb-12">Certificates</h1>
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-center items-center py-12 sm:py-16 md:py-20">
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Certificates</h1>
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8">
         {displayedCertificates.map((cert) => (
           <Card
             key={cert.id}
-            className="bg-[#e6f0fa] dark:bg-[#2f3647] rounded-[20px] p-6 flex flex-col h-full"
+            className="bg-[#e6f0fa] dark:bg-[#2f3647] rounded-[20px] p-4 sm:p-6 flex flex-col h-full"
           >
             <CardContent className="p-0 flex justify-center items-center">
               <img
                 src={cert.src}
                 alt={cert.alt}
-                className="w-full h-auto rounded-lg shadow-md"
+                className="w-full h-auto max-h-60 sm:max-h-72 md:max-h-80 rounded-lg shadow-md object-contain"
                 onError={(e) => {
                   console.error("Failed to load certificate:", cert.src);
                   e.target.style.display = 'none';
@@ -58,7 +58,7 @@ const CertificatesSection = () => {
           </Card>
         ))}
       </div>
-      <nav className="flex justify-center mt-8 space-x-4">
+      <nav className="flex justify-center mt-8 space-x-2 sm:space-x-4">
         <Button
           onClick={() => handlePageChange(1)}
           className={

@@ -38,7 +38,7 @@ const ContactSection = () => {
     },
     {
       label: "Resume",
-              href: "/img/My_CV.pdf",
+      href: "/img/My_CV.pdf",
       alt: "Resume",
       isDownload: true,
     },
@@ -54,23 +54,23 @@ const ContactSection = () => {
 
   return (
     <section
-      className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-start items-center py-12 relative"
+      className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-start items-center py-8 sm:py-12 md:py-16 relative"
       id="contact"
     >
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-6xl font-bold mb-8">Get in Touch</h1>
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8">Get in Touch</h1>
 
       {/* Info Sections */}
-      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-4 sm:mb-6 px-4 sm:px-8">
         {contactSections.map((section, index) => (
           <div key={index} className="flex flex-col text-center">
-            <h2 className="text-[#2563eb] dark:text-[#0f52ba] text-4xl font-light mb-8">{section.title}</h2>
-            <p className="text-black dark:text-white text-lg font-light">{section.content}</p>
+            <h2 className="text-[#2563eb] dark:text-[#0f52ba] text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-8">{section.title}</h2>
+            <p className="text-black dark:text-white text-base sm:text-lg font-light">{section.content}</p>
           </div>
         ))}
       </div>
 
       {/* Contact Links */}
-      <div className="w-full max-w-5xl flex flex-row justify-evenly items-center text-black dark:text-white text-3xl mt-12 space-x-8 font-light">
+      <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-evenly items-center text-black dark:text-white text-xl sm:text-2xl md:text-3xl mt-8 sm:mt-12 space-y-4 sm:space-y-0 sm:space-x-8 font-light">
         {contactLinks.map(({ label, href, alt, isDownload }, idx) => (
           <a
             key={idx}
@@ -90,12 +90,12 @@ const ContactSection = () => {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className="absolute bottom-8 right-8 bg-[#0f52ba] hover:bg-[#2563eb] text-white rounded-full p-4 shadow-lg transition-colors"
+        className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 bg-[#0f52ba] hover:bg-[#2563eb] text-white rounded-full p-3 sm:p-4 shadow-lg transition-colors"
         title="Back to top"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-5 w-5 sm:h-6 sm:w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -106,7 +106,7 @@ const ContactSection = () => {
       </button>
 
       {/* Footer */}
-      <footer className="w-full max-w-5xl text-black dark:text-white text-center text-sm mt-44 mb-2 font-light">
+      <footer className="w-full max-w-5xl text-black dark:text-white text-center text-xs sm:text-sm mt-24 sm:mt-44 mb-2 font-light">
         © 2025-present Maksymilian Matusiak. All Rights Reserved
       </footer>
     </section>
