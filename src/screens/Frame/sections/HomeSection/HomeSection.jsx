@@ -28,7 +28,10 @@ const HomeSection = ({ isDark, toggleMode }) => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen w-full bg-gradient-to-br from-white to-[#A8CDFF] text-black dark:from-black dark:to-[#1A2035] dark:text-white overflow-hidden flex flex-col"
+      // === MAJOR CHANGE HERE ===
+      // Removed: bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035]
+      // Now, this section will have a transparent background, allowing the gradient from Frame.jsx to show.
+      className="relative min-h-screen w-full text-black dark:text-white overflow-hidden flex flex-col"
     >
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between px-4 sm:px-8 md:px-12 pt-4 sm:pt-6 z-20 w-full">
@@ -176,18 +179,29 @@ const HomeSection = ({ isDark, toggleMode }) => {
         </div>
       </div>
 
-      {/* Horizontal line above logos */}
-      <hr className="hidden sm:block border-t-2 border-[#000] w-full absolute left-0 dark:border-[#fff] border-[#000]" style={{ top: "calc(90% + 2px)" }} />
-      {/* Company Names Marquee Animation */}
-      <div className="relative w-full overflow-hidden bg-[#FFFFFF] dark:bg-[#181e2a] py-2 sm:py-4 mt-4">
-        <div className="flex animate-marquee whitespace-nowrap min-w-max">
-          {[...companies, ...companies].map((name, i) => (
-            <span key={i} className="mx-4 sm:mx-8 text-lg sm:text-2xl md:text-3xl font-semibold tracking-wide">{name}</span>
-          ))}
+      {/* NEW STRUCTURE FOR MARQUEE AND LINES */}
+      {/* This container ensures the lines are relative to the marquee content */}
+      <div className="w-full mt-8"> {/* Added mt-8 to give space from the content above */}
+        {/* Horizontal line above logos */}
+        <hr className="hidden sm:block border-t-2 w-full dark:border-[#fff] border-[#000]" />
+
+        {/* Company Names Marquee Animation */}
+        {/* === MAJOR CHANGE HERE ===
+            Removed specific background colors for light and dark mode.
+            It will now be transparent, revealing the global gradient.
+        */}
+        <div className="relative w-full overflow-hidden bg-transparent py-2 sm:py-4">
+          <div className="flex animate-marquee whitespace-nowrap min-w-max">
+            {[...companies, ...companies].map((name, i) => (
+              <span key={i} className="mx-4 sm:mx-8 text-lg sm:text-2xl md:text-3xl font-semibold tracking-wide">{name}</span>
+            ))}
+          </div>
         </div>
+
+        {/* Horizontal line below logos */}
+        <hr className="hidden sm:block border-t-2 w-full dark:border-[#fff] border-[#000]" />
       </div>
-      {/* Horizontal line below logos */}
-      <hr className="hidden sm:block border-t-2 border-[#000] w-full absolute left-0 dark:border-[#fff] border-[#000]" style={{ top: "calc(90% + 71px)" }} />
+
     </section>
   );
 };

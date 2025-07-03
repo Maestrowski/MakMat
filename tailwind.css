@@ -83,7 +83,24 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: repeating-linear-gradient(
+      45deg,
+      #1f1f1f,           /* Dark gray */
+      #1a2035 100px,     /* Discord navy */
+      #1f1f1f 200px      /* back to dark gray */
+    );
+    background-repeat: repeat;
+    background-size: auto;
+  }
+
+  .light body {
+    background-image: repeating-linear-gradient(
+      45deg,
+      #ffffff,          /* White */
+      #a8cdff 100px,    /* Soft blue */
+      #ffffff 200px     /* back to white */
+    );
   }
 }

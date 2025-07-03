@@ -32,9 +32,16 @@ export const Frame = () => {
   const toggleMode = () => setIsDark((prev) => !prev);
 
   return (
-    // Removed fixed dark background here
-    <div className="min-h-screen w-full scroll-smooth">
-      <div className="w-full flex flex-col">
+    <div className="min-h-screen w-full scroll-smooth font-sans"> {/* Added font-sans for consistency */}
+      {/* This is the core change: Apply the seamless gradient background to a fixed element.
+        It covers the entire viewport and sits behind all your content (z-index: 0).
+      */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035]"></div>
+
+      {/* This div wraps all your sections. It needs to be relative and have a z-index
+        higher than the fixed background so your content is visible on top of the gradient.
+      */}
+      <div className="relative z-10 w-full flex flex-col">
         <section id="home"><HomeSection isDark={isDark} toggleMode={toggleMode} /></section>
         <section id="about"><AboutMeSection /></section>
         <section id="skills"><SkillsSection /></section>

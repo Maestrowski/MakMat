@@ -13,7 +13,7 @@ const ContactSection = () => {
         "Networking is crucial within the tech industry. I always look forward to meeting new people with whom I could share valuable insight. Whether you are a developer, entrepreneur or just someone willing to learn about programming, I'd love to talk and learn more about you. Let's go on a call and see where the conversation takes us.",
     },
     {
-      title: "Collaborate",
+    title: "Collaborate",
       content:
         "I have a passion for developing web applications that solve real-world problems.I'm also interested in projects that involve machine learning or anything that will challenge me and push me outside my comfort zone. I am always ready to work as a team and build something amazing together.",
     },
@@ -54,13 +54,18 @@ const ContactSection = () => {
 
   return (
     <section
-      className="w-full min-h-screen bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035] text-black dark:text-white flex flex-col justify-start items-center py-8 sm:py-12 md:py-16 relative"
+      // Changed justify-start to justify-between to distribute space
+      // Reduced py- to give more room for content to be distributed
+      className="w-full min-h-screen text-black dark:text-white flex flex-col justify-between items-center py-4 sm:py-8 md:py-12 relative"
       id="contact"
     >
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8">Get in Touch</h1>
+      {/* Moved mb- to the info sections div below, keeping h1 itself snug */}
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-6xl font-bold">Get in Touch</h1>
 
-      {/* Info Sections */}
-      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-4 sm:mb-6 px-4 sm:px-8">
+      {/* NO flexible spacer here anymore, justify-between handles main spacing */}
+      {/* Removed the mb from here as we'll adjust spacing below with mt on links */}
+      {/* Info Sections - Added mt to position it relative to the top */}
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8 mt-12 sm:mt-24">
         {contactSections.map((section, index) => (
           <div key={index} className="flex flex-col text-center">
             <h2 className="text-[#2563eb] dark:text-[#0f52ba] text-2xl sm:text-3xl md:text-4xl font-light mb-4 sm:mb-8">{section.title}</h2>
@@ -69,8 +74,8 @@ const ContactSection = () => {
         ))}
       </div>
 
-      {/* Contact Links */}
-      <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-evenly items-center text-black dark:text-white text-xl sm:text-2xl md:text-3xl mt-8 sm:mt-12 space-y-4 sm:space-y-0 sm:space-x-8 font-light">
+      {/* Contact Links - Adjusted mt for desired spacing from info sections, added mb for footer spacing */}
+      <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-evenly items-center text-black dark:text-white text-xl sm:text-2xl md:text-3xl mt-24 sm:mt-32 space-y-4 sm:space-y-0 sm:space-x-8 font-light mb-16 sm:mb-24">
         {contactLinks.map(({ label, href, alt, isDownload }, idx) => (
           <a
             key={idx}
@@ -86,7 +91,7 @@ const ContactSection = () => {
         ))}
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top Button (no changes) */}
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
@@ -105,8 +110,8 @@ const ContactSection = () => {
         </svg>
       </button>
 
-      {/* Footer */}
-      <footer className="w-full max-w-5xl text-black dark:text-white text-center text-xs sm:text-sm mt-24 sm:mt-44 mb-2 font-light">
+      {/* Footer - mt-auto not needed with justify-between, removed as mb from links handles its space */}
+      <footer className="w-full max-w-5xl text-black dark:text-white text-center text-xs sm:text-sm font-light">
         © 2025-present Maksymilian Matusiak. All Rights Reserved
       </footer>
     </section>
