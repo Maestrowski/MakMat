@@ -4,11 +4,20 @@ from flask_cors import CORS
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import requests
+import logging
 
 app = Flask(__name__)
 
-# CORS: Allow only your Vercel frontend domain
-CORS(app, origins=["https://maksmatusiak.vercel.app", "https://makmat.onrender.com"])
+# Debug logging for all requests
+@app.before_request
+def log_request_info():
+    app.logger.info(f"Request: {request.method} {request.path} from {request.remote_addr}")
+    app.logger.info(f"Headers: {dict(request.headers)}")
+    if request.method in ['POST', 'PUT', 'PATCH']:
+        app.logger.info(f"Body: {request.get_data()}")
+
+# CORS: Allow only your Vercel frontend domain and backend for local/server-to-server
+CORS(app, origins=["https://maksmatusiak.vercel.app", "https://makmat.onrender.com"], supports_credentials=True)
 
 # Rate limiting: 10 requests per minute per IP
 limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
@@ -86,9 +95,19 @@ Contact:
 You can answer both professional and fun/personal questions. Keep answers concise and natural, like a real human. Avoid generic or overly long introductions. If asked about language ability, answer briefly and only elaborate if asked.
 """
 
-@app.route('/api/maksai', methods=['POST'])
+@app.route('/', methods=['GET', 'OPTIONS'])
+def index():
+    if request.method == 'OPTIONS':
+        app.logger.info("OPTIONS request to root")
+        return '', 200
+    return "OK", 200
+
+@app.route('/api/maksai', methods=['POST', 'OPTIONS'])
 @limiter.limit("10 per minute")
 def maksai():
+    if request.method == 'OPTIONS':
+        app.logger.info("OPTIONS preflight to /api/maksai")
+        return '', 200
     data = request.get_json()
     user_message = data.get('message', '')
     history = data.get('history', [])
@@ -106,7 +125,7 @@ def maksai():
         messages.append({"role": "user", "content": user_message})
         headers = {
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "HTTP-Referer": "https://makmat.vercel.app",
+            "HTTP-Referer": "https://maksmatusiak.vercel.app",
             "X-Title": "MaksAI"
         }
         payload = {
@@ -121,11 +140,19 @@ def maksai():
         ai_message = result['choices'][0]['message']['content']
         return jsonify({'response': ai_message})
     except requests.exceptions.HTTPError as e:
+        app.logger.error(f"HTTPError from OpenRouter: {e.response.text}")
         if e.response.status_code == 429:
             return jsonify({'response': 'Sorry, the AI is currently busy (rate limit exceeded). Please try again in a minute.'}), 429
         return jsonify({'response': f'Error from OpenRouter: {e.response.text}'}), 500
     except Exception as e:
+        app.logger.error(f"Internal server error: {str(e)}")
         return jsonify({'response': f'Internal server error: {str(e)}'}), 500
+
+# Catch-all for unsupported methods
+@app.errorhandler(405)
+def method_not_allowed(e):
+    app.logger.warning(f"405 Method Not Allowed: {request.method} {request.path}")
+    return jsonify({'error': 'Method Not Allowed'}), 405
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
