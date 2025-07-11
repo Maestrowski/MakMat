@@ -25,7 +25,7 @@ const AboutMeSection = () => {
             Present
           </h2>
           <p className="text-sm sm:text-base font-light text-center">
-            Currently I am a final year undergraduate student at Queen Mary University of London studying Computer Science and Mathematics. Alongside my studies, I am currently a co-founder of LearnTeach.io, a token-based skill sharing platform during the development stage. I am also offering freelance web development services.
+            Currently I have graduated top of my class with first class honours from Queen Mary University of London with a BSc in Computer Science. Alongside my studies, I am currently a co-founder of LearnTeach.io, a token-based skill sharing platform during the development stage. I am also offering freelance web development services.
           </p>
         </div>
         <div>

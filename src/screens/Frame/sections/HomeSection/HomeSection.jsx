@@ -28,9 +28,6 @@ const HomeSection = ({ isDark, toggleMode }) => {
   return (
     <section
       ref={sectionRef}
-      // === MAJOR CHANGE HERE ===
-      // Removed: bg-gradient-to-br from-white to-[#A8CDFF] dark:from-black dark:to-[#1A2035]
-      // Now, this section will have a transparent background, allowing the gradient from Frame.jsx to show.
       className="relative min-h-screen w-full text-black dark:text-white overflow-hidden flex flex-col"
     >
       {/* Navigation Bar */}
@@ -150,18 +147,18 @@ const HomeSection = ({ isDark, toggleMode }) => {
             Software Developer | UI/UX Designer<br />Web Developer | Data Scientist
           </h2>
           <p className="mb-8 text-base sm:text-lg font-light">
-            I am a passionate tech enthusiast based in London, currently studying Computer Science and Mathematics. Beyond my studies I've actively developed a range of projects, both independently and in collaboration with other developers or clients. My personal mission is to integrate AI within web development in order to provide smarter, more efficient solutions. I am looking forward to explore new career opportunities to keep learning and developing my skills
+            I am a passionate tech enthusiast based in London. Recently graduated with a degree in Computer Science. Beyond my studies I've actively developed a range of projects, both independently and in collaboration with other developers or clients. My personal mission is to integrate AI within web development in order to provide smarter, more efficient solutions. I am looking forward to explore new career opportunities to keep learning and developing my skills
           </p>
           <a
-            href="/img/My_CV.pdf"
+            href="/img/Maks_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="border-2 border-[#2563eb] text-[#2563eb] bg-transparent hover:bg-[#2563eb] hover:text-white font-medium px-6 py-2 mb-8">
+            {/* Reduced mb- from mb-8 to mb-2 to pull "Worked with" closer to the button */}
+            <Button className="border-2 border-[#2563eb] text-[#2563eb] bg-transparent hover:bg-[#2563eb] hover:text-white font-medium px-6 py-2 mb-2">
               View resume
             </Button>
           </a>
-          <div className="mb-2 text-[#0f52ba]">Worked with</div>
         </div>
         {/* Right: Avatar */}
         <div className="flex-1 flex justify-center w-full mb-8 lg:mb-0">
@@ -180,16 +177,14 @@ const HomeSection = ({ isDark, toggleMode }) => {
       </div>
 
       {/* NEW STRUCTURE FOR MARQUEE AND LINES */}
-      {/* This container ensures the lines are relative to the marquee content */}
-      <div className="w-full mt-8"> {/* Added mt-8 to give space from the content above */}
+      {/* Reduced mt- from mt-8 to mt-4 or mt-6 to bring the entire marquee block up */}
+      <div className="w-full mt-4">
+        {/* "Worked with" text moved here, just above the horizontal line */}
+        <div className="text-black dark:text-white mb-1 text-center text-base sm:text-lg font-medium">Worked with</div>
         {/* Horizontal line above logos */}
         <hr className="hidden sm:block border-t-2 w-full dark:border-[#fff] border-[#000]" />
 
         {/* Company Names Marquee Animation */}
-        {/* === MAJOR CHANGE HERE ===
-            Removed specific background colors for light and dark mode.
-            It will now be transparent, revealing the global gradient.
-        */}
         <div className="relative w-full overflow-hidden bg-transparent py-2 sm:py-4">
           <div className="flex animate-marquee whitespace-nowrap min-w-max">
             {[...companies, ...companies].map((name, i) => (

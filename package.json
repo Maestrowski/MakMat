@@ -9,15 +9,17 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
     "clsx": "2.1.1",
+    "i18next": "^25.3.2",
     "lucide-react": "^0.453.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^15.6.0",
     "react-router-dom": "^6.8.1",
-    "tailwind-merge": "2.5.4",
-    "@radix-ui/react-slot": "^1.1.0",
-    "class-variance-authority": "^0.7.0"
+    "tailwind-merge": "2.5.4"
   },
   "devDependencies": {
     "@animaapp/vite-plugin-screen-graph": "^0.1.5",
