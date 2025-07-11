@@ -1,57 +1,59 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const SkillsSection = () => {
+  const { t } = useTranslation();
   const categories = [
     {
-      title: "Front End",
+      title: t('skills.frontend'),
       skills: [
-        { name: "HTML" },
-        { name: "JavaScript" },
-        { name: "TypeScript" },
-        { name: "React" },
-        { name: "Vue" },
-        { name: "Streamlit" },
-        { name: "Next.js" },
+        { name: 'HTML' },
+        { name: 'JavaScript' },
+        { name: 'TypeScript' },
+        { name: 'React' },
+        { name: 'Vue' },
+        { name: 'Streamlit' },
+        { name: 'Next.js' },
       ],
     },
     {
-      title: "Styling",
+      title: t('skills.styling'),
       skills: [
-        { name: "CSS" },
-        { name: "BootStrap" },
-        { name: "Tailwind CSS" },
-        { name: "Figma" },
+        { name: 'CSS' },
+        { name: 'BootStrap' },
+        { name: 'Tailwind CSS' },
+        { name: 'Figma' },
       ],
     },
     {
-      title: "Back End",
+      title: t('skills.backend'),
       skills: [
-        { name: "Java" },
-        { name: "Python" },
-        { name: "Spring Boot" },
-        { name: "Java Swift" },
-        { name: "Django" },
-        { name: "SQL" },
+        { name: 'Java' },
+        { name: 'Python' },
+        { name: 'Spring Boot' },
+        { name: 'Java Swift' },
+        { name: 'Django' },
+        { name: 'SQL' },
       ],
     },
     {
-      title: "Machine Learning & Data Science",
+      title: t('skills.ml'),
       skills: [
-        { name: "TensorFlow" },
-        { name: "PyTorch" },
-        { name: "Apache Spark" },
-        { name: "R" },
+        { name: 'TensorFlow' },
+        { name: 'PyTorch' },
+        { name: 'Apache Spark' },
+        { name: 'R' },
       ],
     },
     {
-      title: "Miscellaneous",
+      title: t('skills.misc'),
       skills: [
-        { name: "Git" },
-        { name: "Jupyter Notebook" },
-        { name: "Anaconda" },
-        { name: "REST APIs" },
-        { name: "GCP" },
-        { name: "Selenium" },
+        { name: 'Git' },
+        { name: 'Jupyter Notebook' },
+        { name: 'Anaconda' },
+        { name: 'REST APIs' },
+        { name: 'GCP' },
+        { name: 'Selenium' },
       ],
     },
   ];
@@ -63,7 +65,7 @@ const SkillsSection = () => {
       // This section will now have a transparent background, allowing the gradient from Frame.jsx to show.
       className="w-full min-h-screen text-black dark:text-white flex flex-col justify-center items-center py-12 sm:py-16 md:py-20"
     >
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Skills</h1>
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{t('skills.title')}</h1>
       <div className="w-full max-w-6xl flex flex-col gap-6 sm:gap-8 px-4 sm:px-8">
         {categories.map((category) => (
           <div key={category.title} className="mb-2">

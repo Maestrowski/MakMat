@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../../../../components/ui/button";
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../../../../components/LanguageSwitcher';
 
 const companies = [
   "Goldman Sachs",
@@ -21,6 +23,7 @@ const navLinks = [
 const HomeSection = ({ isDark, toggleMode }) => {
   const sectionRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   // Close menu on navigation
   const handleNavClick = () => setMenuOpen(false);
@@ -44,19 +47,20 @@ const HomeSection = ({ isDark, toggleMode }) => {
         />
         {/* Desktop Links */}
         <ul className="hidden lg:flex space-x-4 xl:space-x-10 text-base md:text-lg font-medium">
-          {navLinks.map((link) => (
-            <li key={link.href}>
+          {['home', 'about', 'skills', 'portfolio', 'certificates', 'contact'].map((key, idx) => (
+            <li key={key}>
               <a
-                href={link.href}
+                href={`#${key}`}
                 className="text-[#0f52ba] hover:text-[#2563eb] transition-colors"
               >
-                {link.label}
+                {t(`navbar.${key}`)}
               </a>
             </li>
           ))}
         </ul>
         {/* Social Icons & Dark/Light Mode */}
         <div className="hidden lg:flex items-center space-x-2 md:space-x-4">
+          <LanguageSwitcher />
           <a href="mailto:maksymilianmatusiak@gmail.com" title="Email me">
             <img
               src="/img/Email.png"
@@ -108,19 +112,20 @@ const HomeSection = ({ isDark, toggleMode }) => {
         {menuOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-60 z-20 flex flex-col items-center justify-center lg:hidden">
             <ul className="flex flex-col space-y-8 text-2xl font-semibold">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+              {['home', 'about', 'skills', 'portfolio', 'certificates', 'contact'].map((key, idx) => (
+                <li key={key}>
                   <a
-                    href={link.href}
+                    href={`#${key}`}
                     className="text-[#0f52ba] hover:text-[#2563eb] transition-colors"
                     onClick={handleNavClick}
                   >
-                    {link.label}
+                    {t(`navbar.${key}`)}
                   </a>
                 </li>
               ))}
             </ul>
             <div className="flex items-center space-x-6 mt-8">
+              <LanguageSwitcher />
               <a href="mailto:maksymilianmatusiak@gmail.com" title="Email me">
                 <img src="/img/Email.png" alt="Email" className="h-7 w-7" />
               </a>
@@ -142,21 +147,20 @@ const HomeSection = ({ isDark, toggleMode }) => {
       <div className="flex flex-col-reverse lg:flex-row items-center justify-center flex-1 mt-8 sm:mt-16 md:mt-24 px-4 sm:px-8 md:px-16 w-full gap-8 lg:gap-0">
         {/* Left: Text Content */}
         <div className="flex-1 w-full max-w-xl text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2">Maks Matusiak</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2">{t('home.name')}</h1>
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#2563eb] mb-4">
-            Software Developer | UI/UX Designer<br />Web Developer | Data Scientist
+            {t('home.roles')}
           </h2>
           <p className="mb-8 text-base sm:text-lg font-light">
-            I am a passionate tech enthusiast based in London. Recently graduated with a degree in Computer Science. Beyond my studies I've actively developed a range of projects, both independently and in collaboration with other developers or clients. My personal mission is to integrate AI within web development in order to provide smarter, more efficient solutions. I am looking forward to explore new career opportunities to keep learning and developing my skills
+            {t('home.description')}
           </p>
           <a
             href="/img/Maks_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {/* Reduced mb- from mb-8 to mb-2 to pull "Worked with" closer to the button */}
             <Button className="border-2 border-[#2563eb] text-[#2563eb] bg-transparent hover:bg-[#2563eb] hover:text-white font-medium px-6 py-2 mb-2">
-              View resume
+              {t('home.resume')}
             </Button>
           </a>
         </div>
@@ -180,7 +184,7 @@ const HomeSection = ({ isDark, toggleMode }) => {
       {/* Reduced mt- from mt-8 to mt-4 or mt-6 to bring the entire marquee block up */}
       <div className="w-full mt-4">
         {/* "Worked with" text moved here, just above the horizontal line */}
-        <div className="text-black dark:text-white mb-1 text-center text-base sm:text-lg font-medium">Worked with</div>
+        <div className="text-black dark:text-white mb-1 text-center text-base sm:text-lg font-medium">{t('home.worked_with')}</div>
         {/* Horizontal line above logos */}
         <hr className="hidden sm:block border-t-2 w-full dark:border-[#fff] border-[#000]" />
 

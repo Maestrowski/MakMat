@@ -1,0 +1,124 @@
+{
+  "navbar": {
+    "home": "首页",
+    "about": "关于我",
+    "skills": "技能",
+    "portfolio": "作品集",
+    "certificates": "证书",
+    "contact": "联系"
+  },
+  "home": {
+    "welcome": "欢迎来到我的作品集！",
+    "name": "Maks Matusiak",
+    "roles": "软件开发者 | UI/UX 设计师\n网页开发者 | 数据科学家",
+    "description": "我是一名居住在伦敦的科技爱好者。最近毕业于计算机科学专业。除了学业之外，我还独立或与其他开发者、客户合作开发了多个项目。我的个人使命是将人工智能融入网页开发，以提供更智能、更高效的解决方案。我期待探索新的职业机会，不断学习和提升自己的技能。",
+    "resume": "查看简历",
+    "worked_with": "合作过的公司"
+  },
+  "aboutMe": {
+    "title": "关于我",
+    "past": {
+      "title": "过去",
+      "description": "我对编程的兴趣是在大学时培养的。最初我对网页开发感兴趣，因为我看到了它的各种可能性以及我能带来的影响。多年来，我开发了多个网站并不断提升自己的技能。我的成长与人工智能的兴起同步，这让我非常兴奋，因为 AI 带来了更多可能性。最近我开发了一个基于 AI 的股市预测器，并在网页应用中展示，这只是个开始。"
+    },
+    "present": {
+      "title": "现在",
+      "description": "目前我以优异成绩毕业于伦敦玛丽女王大学计算机科学专业。同时，我是 LearnTeach.io 的联合创始人，这是一个基于代币的技能分享平台，正在开发中。我也提供自由网页开发服务。"
+    },
+    "future": {
+      "title": "未来",
+      "description": "我的个人使命是将人工智能融入网页开发，以提供更智能、更高效的解决方案。我期待探索新的职业机会，不断学习和提升自己的技能。"
+    }
+  },
+  "skills": {
+    "title": "技能",
+    "frontend": "前端",
+    "styling": "样式",
+    "backend": "后端",
+    "ml": "机器学习与数据科学",
+    "misc": "其他"
+  },
+  "projects": {
+    "title": "项目",
+    "project1": {
+      "title": "GRU 股市预测器",
+      "desc1": "数据来自 YahooFinance",
+      "desc2": "在 Streamlit 网页应用中展示",
+      "desc3": "基于 TensorFlow 开发",
+      "desc4": "多次测试窗口下 MAPE <5%"
+    },
+    "project2": {
+      "title": "全栈兴趣匹配应用",
+      "desc1": "基于 Django 和 Vue 开发",
+      "desc2": "基于兴趣的用户匹配",
+      "desc3": "好友请求功能",
+      "desc4": "REST API 和 AJAX 过滤",
+      "desc5": "前端使用 Typescript"
+    },
+    "project3": {
+      "title": "FDM 企业费用应用",
+      "desc1": "基于 React 的网页应用",
+      "desc2": "为真实客户开发的项目",
+      "desc3": "安全登录与多设备支持",
+      "desc4": "实时费用可视化面板",
+      "desc5": "支持 4 种语言"
+    },
+    "project4": {
+      "title": "天气预报器",
+      "desc1": "基于 React 的网页应用",
+      "desc2": "OpenWeather API 提供小时/天预报",
+      "desc3": "地理定位显示本地天气",
+      "desc4": "良好的用户体验"
+    },
+    "project5": {
+      "title": "CNN CIFAR-10 图像分类器",
+      "desc1": "基于 PyTorch 开发",
+      "desc2": ">90% 测试准确率",
+      "desc3": "Batch Normalization 提升 6 万张图片的泛化能力",
+      "desc4": "GPU 使用率和训练时间减少 40%"
+    },
+    "project6": {
+      "title": "卡路里计算器",
+      "desc1": "用 Java Swift 开发",
+      "desc2": "用户输入个人信息",
+      "desc3": "用户设定目标",
+      "desc4": "算法计算用户应摄入的卡路里"
+    },
+    "project7": {
+      "title": "乒乓球",
+      "desc1": "用 Java Swift 开发",
+      "desc2": "根据球的位置移动对方球拍的算法",
+      "desc3": "实现物理效果",
+      "desc4": "基于得分的游戏"
+    },
+    "page1": "1",
+    "page2": "2",
+    "last": "最后一页"
+  },
+  "certificates": {
+    "title": "证书",
+    "page1": "1",
+    "page2": "2",
+    "last": "最后"
+  },
+  "contact": {
+    "title": "联系",
+    "section1": {
+      "title": "工作机会",
+      "content": "我愿意讨论工作机会。作为即将毕业的学生，我正在寻找实习或毕业生项目，以帮助我获得更多经验并进一步提升技能。凭借我目前的技能，我希望参与有趣的项目，在团队中学习和贡献。"
+    },
+    "section2": {
+      "title": "人脉网络",
+      "content": "在科技行业，人脉网络至关重要。我总是期待结识新朋友，分享有价值的见解。无论你是开发者、创业者，还是对编程感兴趣的人，我都很乐意交流并了解你。让我们聊聊，看看会有什么收获。"
+    },
+    "section3": {
+      "title": "合作",
+      "content": "我热衷于开发解决实际问题的网页应用，也对涉及机器学习或能让我突破舒适区的项目感兴趣。我始终乐于团队合作，共同创造出色的成果。"
+    },
+    "email": "电子邮件",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "resume": "简历",
+    "footer": "© 2025-至今 Maksymilian Matusiak. 保留所有权利"
+  }
+} 

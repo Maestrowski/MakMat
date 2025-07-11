@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { useTranslation } from 'react-i18next';
 
 const CertificatesSection = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
 
   const certificates = [
@@ -42,7 +44,7 @@ const CertificatesSection = () => {
       // This section will now have a transparent background, allowing the gradient from Frame.jsx to show.
       className="w-full min-h-screen text-black dark:text-white flex flex-col justify-center items-center py-12 sm:py-16 md:py-20"
     >
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Certificates</h1>
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{t('certificates.title')}</h1>
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8">
         {displayedCertificates.map((cert) => (
           <Card
@@ -72,7 +74,7 @@ const CertificatesSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          1
+          {t('certificates.page1') || '1'}
         </Button>
         <Button
           onClick={() => handlePageChange(2)}
@@ -82,7 +84,7 @@ const CertificatesSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          2
+          {t('certificates.page2') || '2'}
         </Button>
         <Button
           onClick={() => handlePageChange('last')}
@@ -92,7 +94,7 @@ const CertificatesSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          Last
+          {t('certificates.last') || 'Last'}
         </Button>
       </nav>
     </section>

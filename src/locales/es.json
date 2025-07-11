@@ -1,0 +1,130 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "portfolio": "Portafolio",
+    "certificates": "Certificados",
+    "contact": "Contacto"
+  },
+  "home": {
+    "welcome": "¡Bienvenido a mi portafolio!",
+    "name": "Maks Matusiak",
+    "roles": "Desarrollador de Software | Diseñador UI/UX\nDesarrollador Web | Científico de Datos",
+    "description": "Soy un entusiasta de la tecnología con sede en Londres. Recientemente me gradué en Ciencias de la Computación. Más allá de mis estudios, he desarrollado una variedad de proyectos, tanto de forma independiente como en colaboración con otros desarrolladores o clientes. Mi misión personal es integrar la IA en el desarrollo web para ofrecer soluciones más inteligentes y eficientes. Estoy buscando nuevas oportunidades profesionales para seguir aprendiendo y desarrollando mis habilidades.",
+    "resume": "Ver currículum",
+    "worked_with": "He trabajado con"
+  },
+  "aboutMe": {
+    "title": "Sobre mí",
+    "past": {
+      "title": "Pasado",
+      "description": "Mi interés por la programación surgió en la universidad. Al principio me atrajo el desarrollo web al ver todas las posibilidades y el impacto que podía tener en el mundo. A lo largo de los años, he desarrollado varios sitios web y continuado perfeccionando mis habilidades. Mi desarrollo coincidió con el auge de la inteligencia artificial, lo que me entusiasma especialmente porque con la IA hay aún más posibilidades. Recientemente desarrollé un predictor bursátil basado en IA presentado en una aplicación web, y eso es solo el comienzo."
+    },
+    "present": {
+      "title": "Presente",
+      "description": "Actualmente me gradué con honores de la Queen Mary University of London con una licenciatura en Ciencias de la Computación. Además, soy cofundador de LearnTeach.io, una plataforma de intercambio de habilidades basada en tokens que está en desarrollo. También ofrezco servicios de desarrollo web freelance."
+    },
+    "future": {
+      "title": "Futuro",
+      "description": "Mi misión personal es integrar la IA en el desarrollo web para ofrecer soluciones más inteligentes y eficientes. Espero con interés nuevas oportunidades profesionales para seguir aprendiendo y desarrollando mis habilidades."
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Tecnologías y herramientas que domino",
+    "frontend": "Front End",
+    "styling": "Estilos",
+    "backend": "Back End",
+    "ml": "Aprendizaje automático y Ciencia de Datos",
+    "misc": "Misceláneo",
+    "languages": "Lenguajes",
+    "tools": "Herramientas",
+    "other": "Otras habilidades"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "project1": {
+      "title": "Predicción bursátil GRU",
+      "desc1": "Datos obtenidos de YahooFinance",
+      "desc2": "Mostrado en una aplicación web Streamlit",
+      "desc3": "Desarrollado en TensorFlow",
+      "desc4": "Logró <5% MAPE en múltiples ventanas de prueba"
+    },
+    "project2": {
+      "title": "App Full-Stack de Emparejamiento de Hobbies",
+      "desc1": "Hecho en Django y Vue",
+      "desc2": "Emparejamiento de usuarios basado en hobbies",
+      "desc3": "Funcionalidad de solicitud de amistad",
+      "desc4": "APIs REST y filtrado AJAX",
+      "desc5": "Frontend en Typescript"
+    },
+    "project3": {
+      "title": "Aplicación de Gastos Empresariales FDM",
+      "desc1": "Aplicación web basada en React",
+      "desc2": "Proyecto real para un cliente real",
+      "desc3": "Inicio de sesión seguro y soporte multidispositivo",
+      "desc4": "Panel visual para gastos en tiempo real",
+      "desc5": "Disponible en 4 idiomas"
+    },
+    "project4": {
+      "title": "Pronosticador del clima",
+      "desc1": "Aplicación web basada en React",
+      "desc2": "API de OpenWeather para pronóstico horario/diario",
+      "desc3": "Geolocalización para incluir el clima local",
+      "desc4": "Experiencia de usuario positiva"
+    },
+    "project5": {
+      "title": "Clasificador de imágenes CNN CIFAR-10",
+      "desc1": "Desarrollado en PyTorch",
+      "desc2": ">90% de precisión en pruebas",
+      "desc3": "Batch Normalization mejorando la generalización en 60,000 imágenes",
+      "desc4": "Reducción del uso de GPU y tiempo de entrenamiento en un 40%"
+    },
+    "project6": {
+      "title": "Calculadora de calorías",
+      "desc1": "Desarrollado en Java Swift",
+      "desc2": "El usuario ingresa datos personales",
+      "desc3": "El usuario define sus objetivos",
+      "desc4": "El algoritmo calcula cuántas calorías debe consumir el usuario"
+    },
+    "project7": {
+      "title": "Ping Pong",
+      "desc1": "Desarrollado en Java Swift",
+      "desc2": "Algoritmo que mueve la paleta opuesta según la ubicación de la pelota",
+      "desc3": "Física implementada",
+      "desc4": "Juego basado en puntuación"
+    },
+    "page1": "1",
+    "page2": "2",
+    "last": "Última"
+  },
+  "certificates": {
+    "title": "Certificados",
+    "subtitle": "Logros y certificaciones",
+    "download": "Descargar certificado",
+    "page1": "1",
+    "page2": "2",
+    "last": "Última"
+  },
+  "contact": {
+    "title": "Contacto",
+    "section1": {
+      "title": "Oportunidad laboral",
+      "content": "Estoy abierto a discutir oportunidades laborales. Como recién graduado, busco prácticas o programas para graduados que me ayuden a ganar experiencia y mejorar mis habilidades. Con las habilidades que poseo, me interesa trabajar en proyectos emocionantes donde pueda aprender y contribuir a un equipo ambicioso."
+    },
+    "section2": {
+      "title": "Red de contactos",
+      "content": "El networking es crucial en la industria tecnológica. Siempre estoy dispuesto a conocer nuevas personas con quienes compartir ideas valiosas. Ya seas desarrollador, emprendedor o simplemente alguien interesado en aprender sobre programación, me encantaría conversar y saber más de ti. Hablemos y veamos a dónde nos lleva la conversación."
+    },
+    "section3": {
+      "title": "Colaborar",
+      "content": "Me apasiona desarrollar aplicaciones web que resuelvan problemas reales. También me interesan los proyectos que involucren machine learning o cualquier cosa que me desafíe y me saque de mi zona de confort. Siempre estoy listo para trabajar en equipo y construir algo increíble juntos."
+    },
+    "email": "Correo electrónico",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "resume": "Currículum",
+    "footer": "© 2025-presente Maksymilian Matusiak. Todos los derechos reservados"
+  }
+} 

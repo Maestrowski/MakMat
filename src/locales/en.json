@@ -1,0 +1,124 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "skills": "Skills",
+    "portfolio": "Portfolio",
+    "certificates": "Certificates",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to my portfolio!",
+    "name": "Maks Matusiak",
+    "roles": "Software Developer | UI/UX Designer\nWeb Developer | Data Scientist",
+    "description": "I am a passionate tech enthusiast based in London. Recently graduated with a degree in Computer Science. Beyond my studies I've actively developed a range of projects, both independently and in collaboration with other developers or clients. My personal mission is to integrate AI within web development in order to provide smarter, more efficient solutions. I am looking forward to explore new career opportunities to keep learning and developing my skills.",
+    "resume": "View resume",
+    "worked_with": "Worked with"
+  },
+  "aboutMe": {
+    "title": "About Me",
+    "past": {
+      "title": "Past",
+      "description": "My interest for programming developed when I was in college. At first I was interested in web development having seen all the possibilities and ways I could have an impact on the world. Over the years, I have developed several websites and continued to develop my skills. My development comes at around the same time as the rise of artificial intelligence which particularly excites me because with AI there are even more possibilities. Lately I developed a AI stock market predictor which is presented in a web application and that is only the beginning."
+    },
+    "present": {
+      "title": "Present",
+      "description": "Currently I have graduated top of my class with first class honours from Queen Mary University of London with a BSc in Computer Science. Alongside my studies, I am currently a co-founder of LearnTeach.io, a token-based skill sharing platform during the development stage. I am also offering freelance web development services."
+    },
+    "future": {
+      "title": "Future",
+      "description": "My personal mission is to integrate AI within web development in order to provide smarter, more efficient solutions. I am looking forward to explore new career opportunities to keep learning and developing my skills."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "project1": {
+      "title": "GRU Stock Market Predictor",
+      "desc1": "Data gathered from YahooFinance",
+      "desc2": "Displayed on Streamlit web friendly application",
+      "desc3": "Engineered in TensorFlow",
+      "desc4": "Achieved <5% MAPE across multiple test windows"
+    },
+    "project2": {
+      "title": "Full-Stack Hobby Matching App",
+      "desc1": "Made in Django and Vue",
+      "desc2": "Hobby-based user matching",
+      "desc3": "Friend request functionality",
+      "desc4": "Implemented REST APIs and AJAX based filtering",
+      "desc5": "Frontend made in Typescript"
+    },
+    "project3": {
+      "title": "FDM Business Expense Application",
+      "desc1": "React-based web application",
+      "desc2": "Real-life project made for a real client",
+      "desc3": "Secure login and multi device support",
+      "desc4": "Visual dashboard for real-time expenses",
+      "desc5": "Available in 4 languages"
+    },
+    "project4": {
+      "title": "Weather forecaster",
+      "desc1": "React-based web application",
+      "desc2": "OpenWeather API for hourly/daily forecast",
+      "desc3": "Geolocation to include local weather",
+      "desc4": "Positive User Experience"
+    },
+    "project5": {
+      "title": "CNN CIFAR-10 Image Classifier",
+      "desc1": "Engineered in PyTorch",
+      "desc2": ">90% Test accuracy",
+      "desc3": "Batch Normalization improving model generalization on 60,000 images",
+      "desc4": "Reduced GPU usage and training time by 40%"
+    },
+    "project6": {
+      "title": "Calorie Calculator",
+      "desc1": "Developed in Java Swift",
+      "desc2": "User inputs personal details",
+      "desc3": "User decides their goals",
+      "desc4": "Based on calculations algorithm tells the user how many caloreis they should consume"
+    },
+    "project7": {
+      "title": "Ping Pong",
+      "desc1": "Developed in Java Swift",
+      "desc2": "Created an algorithm that moves opposition pallet based on ball location",
+      "desc3": "Physics implemented",
+      "desc4": "Score-based game"
+    },
+    "page1": "1",
+    "page2": "2",
+    "last": "Last"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "section1": {
+      "title": "Job opportunity",
+      "content": "I am open to discussion with regards to job opportunities. Being a graduate soon, I am looking for any internships or graduate schemes that would help me gain more experience and further sharpen my skills. With the skills I currently possess, I am interested to work on exciting projects where I can learn and contribute to an ambitious team."
+    },
+    "section2": {
+      "title": "Network",
+      "content": "Networking is crucial within the tech industry. I always look forward to meeting new people with whom I could share valuable insight. Whether you are a developer, entrepreneur or just someone willing to learn about programming, I'd love to talk and learn more about you. Let's go on a call and see where the conversation takes us."
+    },
+    "section3": {
+      "title": "Collaborate",
+      "content": "I have a passion for developing web applications that solve real-world problems.I'm also interested in projects that involve machine learning or anything that will challenge me and push me outside my comfort zone. I am always ready to work as a team and build something amazing together."
+    },
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "resume": "Resume",
+    "footer": "© 2025-present Maksymilian Matusiak. All Rights Reserved"
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": "Front End",
+    "styling": "Styling",
+    "backend": "Back End",
+    "ml": "Machine Learning & Data Science",
+    "misc": "Miscellaneous"
+  },
+  "certificates": {
+    "title": "Certificates",
+    "page1": "1",
+    "page2": "2",
+    "last": "Last"
+  }
+} 

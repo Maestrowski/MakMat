@@ -1,43 +1,42 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const contactSections = [
     {
-      title: "Job opportunity",
-      content:
-        "I am open to discussion with regards to job opportunities. Being a graduate soon, I am looking for any internships or graduate schemes that would help me gain more experience and further sharpen my skills. With the skills I currently possess, I am interested to work on exciting projects where I can learn and contribute to an ambitious team.",
+      title: t('contact.section1.title'),
+      content: t('contact.section1.content'),
     },
     {
-      title: "Network",
-      content:
-        "Networking is crucial within the tech industry. I always look forward to meeting new people with whom I could share valuable insight. Whether you are a developer, entrepreneur or just someone willing to learn about programming, I'd love to talk and learn more about you. Let's go on a call and see where the conversation takes us.",
+      title: t('contact.section2.title'),
+      content: t('contact.section2.content'),
     },
     {
-    title: "Collaborate",
-      content:
-        "I have a passion for developing web applications that solve real-world problems.I'm also interested in projects that involve machine learning or anything that will challenge me and push me outside my comfort zone. I am always ready to work as a team and build something amazing together.",
+      title: t('contact.section3.title'),
+      content: t('contact.section3.content'),
     },
   ];
 
   // Links matching HomeSection URLs
   const contactLinks = [
     {
-      label: "Email",
+      label: t('contact.email'),
       href: "mailto:maksymilianmatusiak@gmail.com",
       alt: "Email",
     },
     {
-      label: "LinkedIn",
+      label: t('contact.linkedin'),
       href: "https://www.linkedin.com/in/maksymilian-matusiak-b7007a214/",
       alt: "LinkedIn",
     },
     {
-      label: "Github",
+      label: t('contact.github'),
       href: "https://github.com/Maestrowski",
       alt: "Github",
     },
     {
-      label: "Resume",
+      label: t('contact.resume'),
       href: "/img/My_CV.pdf",
       alt: "Resume",
       isDownload: true,
@@ -60,7 +59,7 @@ const ContactSection = () => {
       id="contact"
     >
       {/* Moved mb- to the info sections div below, keeping h1 itself snug */}
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-6xl font-bold">Get in Touch</h1>
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-6xl font-bold">{t('contact.title')}</h1>
 
       {/* NO flexible spacer here anymore, justify-between handles main spacing */}
       {/* Removed the mb from here as we'll adjust spacing below with mt on links */}
@@ -112,7 +111,7 @@ const ContactSection = () => {
 
       {/* Footer - mt-auto not needed with justify-between, removed as mb from links handles its space */}
       <footer className="w-full max-w-5xl text-black dark:text-white text-center text-xs sm:text-sm font-light">
-        © 2025-present Maksymilian Matusiak. All Rights Reserved
+        {t('contact.footer')}
       </footer>
     </section>
   );

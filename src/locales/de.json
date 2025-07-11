@@ -1,0 +1,124 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "portfolio": "Portfolio",
+    "certificates": "Zertifikate",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "welcome": "Willkommen in meinem Portfolio!",
+    "name": "Maks Matusiak",
+    "roles": "Softwareentwickler | UI/UX Designer\nWebentwickler | Data Scientist",
+    "description": "Ich bin ein technologiebegeisterter Mensch mit Sitz in London. Kürzlich habe ich meinen Abschluss in Informatik gemacht. Neben meinem Studium habe ich eine Vielzahl von Projekten entwickelt, sowohl eigenständig als auch in Zusammenarbeit mit anderen Entwicklern oder Kunden. Meine persönliche Mission ist es, KI in die Webentwicklung zu integrieren, um intelligentere und effizientere Lösungen zu bieten. Ich freue mich darauf, neue Karrieremöglichkeiten zu erkunden, um meine Fähigkeiten weiterzuentwickeln.",
+    "resume": "Lebenslauf ansehen",
+    "worked_with": "Zusammengearbeitet mit"
+  },
+  "aboutMe": {
+    "title": "Über mich",
+    "past": {
+      "title": "Vergangenheit",
+      "description": "Mein Interesse an Programmierung entwickelte sich im College. Zunächst interessierte ich mich für Webentwicklung, als ich all die Möglichkeiten und den Einfluss sah, den ich auf die Welt haben könnte. Im Laufe der Jahre habe ich mehrere Websites entwickelt und meine Fähigkeiten weiter ausgebaut. Meine Entwicklung fiel mit dem Aufstieg der künstlichen Intelligenz zusammen, was mich besonders begeistert, da mit KI noch mehr möglich ist. Kürzlich habe ich einen KI-basierten Börsenprognose-Algorithmus entwickelt, der in einer Webanwendung präsentiert wird – und das ist erst der Anfang."
+    },
+    "present": {
+      "title": "Gegenwart",
+      "description": "Derzeit habe ich mein Studium an der Queen Mary University of London mit Auszeichnung abgeschlossen. Parallel dazu bin ich Mitbegründer von LearnTeach.io, einer tokenbasierten Plattform zum Austausch von Fähigkeiten, die sich in der Entwicklung befindet. Ich biete auch freiberufliche Webentwicklungsdienste an."
+    },
+    "future": {
+      "title": "Zukunft",
+      "description": "Meine persönliche Mission ist es, KI in die Webentwicklung zu integrieren, um intelligentere und effizientere Lösungen zu bieten. Ich freue mich darauf, neue Karrieremöglichkeiten zu erkunden, um meine Fähigkeiten weiterzuentwickeln."
+    }
+  },
+  "skills": {
+    "title": "Fähigkeiten",
+    "frontend": "Front End",
+    "styling": "Stil",
+    "backend": "Back End",
+    "ml": "Maschinelles Lernen & Data Science",
+    "misc": "Verschiedenes"
+  },
+  "projects": {
+    "title": "Projekte",
+    "project1": {
+      "title": "GRU Börsenprognose",
+      "desc1": "Daten von YahooFinance gesammelt",
+      "desc2": "Angezeigt in einer Streamlit-Webanwendung",
+      "desc3": "Mit TensorFlow entwickelt",
+      "desc4": "<5% MAPE über mehrere Testzeiträume erreicht"
+    },
+    "project2": {
+      "title": "Full-Stack-Hobby-Matching-App",
+      "desc1": "Erstellt mit Django und Vue",
+      "desc2": "Hobbybasiertes Nutzer-Matching",
+      "desc3": "Freundschaftsanfrage-Funktion",
+      "desc4": "REST-APIs und AJAX-basiertes Filtern",
+      "desc5": "Frontend in Typescript"
+    },
+    "project3": {
+      "title": "FDM Geschäftsausgaben-App",
+      "desc1": "Webanwendung auf React-Basis",
+      "desc2": "Reales Projekt für einen echten Kunden",
+      "desc3": "Sicheres Login und Multi-Device-Support",
+      "desc4": "Visuelles Dashboard für Echtzeit-Ausgaben",
+      "desc5": "Verfügbar in 4 Sprachen"
+    },
+    "project4": {
+      "title": "Wettervorhersage",
+      "desc1": "Webanwendung auf React-Basis",
+      "desc2": "OpenWeather-API für stündliche/tägliche Vorhersagen",
+      "desc3": "Geolokalisierung für lokale Wetterdaten",
+      "desc4": "Positive Nutzererfahrung"
+    },
+    "project5": {
+      "title": "CNN CIFAR-10 Bildklassifizierer",
+      "desc1": "Mit PyTorch entwickelt",
+      "desc2": ">90% Testgenauigkeit",
+      "desc3": "Batch Normalization verbessert die Generalisierung auf 60.000 Bildern",
+      "desc4": "GPU-Nutzung und Trainingszeit um 40% reduziert"
+    },
+    "project6": {
+      "title": "Kalorienrechner",
+      "desc1": "Entwickelt in Java Swift",
+      "desc2": "Benutzer gibt persönliche Daten ein",
+      "desc3": "Benutzer legt seine Ziele fest",
+      "desc4": "Algorithmus berechnet, wie viele Kalorien konsumiert werden sollten"
+    },
+    "project7": {
+      "title": "Ping Pong",
+      "desc1": "Entwickelt in Java Swift",
+      "desc2": "Algorithmus bewegt gegnerisches Paddle basierend auf Ballposition",
+      "desc3": "Physik implementiert",
+      "desc4": "Punktebasiertes Spiel"
+    },
+    "page1": "1",
+    "page2": "2",
+    "last": "Letzte"
+  },
+  "certificates": {
+    "title": "Zertifikate",
+    "page1": "1",
+    "page2": "2",
+    "last": "Letztes"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "section1": {
+      "title": "Jobmöglichkeit",
+      "content": "Ich bin offen für Gespräche über Jobmöglichkeiten. Als baldiger Absolvent suche ich Praktika oder Traineeprogramme, die mir helfen, mehr Erfahrung zu sammeln und meine Fähigkeiten weiter zu verbessern. Mit meinen aktuellen Fähigkeiten möchte ich an spannenden Projekten arbeiten, bei denen ich lernen und zu einem ambitionierten Team beitragen kann."
+    },
+    "section2": {
+      "title": "Netzwerk",
+      "content": "Networking ist in der Tech-Branche entscheidend. Ich freue mich immer, neue Leute kennenzulernen, mit denen ich wertvolle Einblicke teilen kann. Ob Sie Entwickler, Unternehmer oder einfach jemand sind, der mehr über Programmierung erfahren möchte – ich würde mich freuen, mit Ihnen zu sprechen. Lassen Sie uns telefonieren und sehen, wohin das Gespräch führt."
+    },
+    "section3": {
+      "title": "Zusammenarbeit",
+      "content": "Ich habe eine Leidenschaft für die Entwicklung von Webanwendungen, die reale Probleme lösen. Ich interessiere mich auch für Projekte im Bereich Machine Learning oder alles, was mich herausfordert und aus meiner Komfortzone bringt. Ich bin immer bereit, im Team zu arbeiten und gemeinsam etwas Großartiges zu schaffen."
+    },
+    "email": "E-Mail",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "resume": "Lebenslauf",
+    "footer": "© 2025-heute Maksymilian Matusiak. Alle Rechte vorbehalten"
+  }
+} 

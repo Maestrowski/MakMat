@@ -1,0 +1,124 @@
+{
+  "navbar": {
+    "home": "Strona główna",
+    "about": "O mnie",
+    "skills": "Umiejętności",
+    "portfolio": "Portfolio",
+    "certificates": "Certyfikaty",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "welcome": "Witamy w moim portfolio!",
+    "name": "Maks Matusiak",
+    "roles": "Programista | Projektant UI/UX\nWeb Developer | Data Scientist",
+    "description": "Jestem pasjonatem technologii z Londynu. Niedawno ukończyłem studia informatyczne. Poza nauką aktywnie rozwijałem różne projekty, zarówno samodzielnie, jak i we współpracy z innymi deweloperami lub klientami. Moją misją jest integracja AI z web developmentem, aby dostarczać inteligentniejsze i bardziej efektywne rozwiązania. Chętnie podejmę nowe wyzwania zawodowe, by dalej się rozwijać.",
+    "resume": "Zobacz CV",
+    "worked_with": "Współpracowałem z"
+  },
+  "aboutMe": {
+    "title": "O mnie",
+    "past": {
+      "title": "Przeszłość",
+      "description": "Moje zainteresowanie programowaniem rozwinęło się w szkole średniej. Na początku fascynował mnie web development, widząc wszystkie możliwości i wpływ, jaki mogę mieć na świat. Przez lata stworzyłem kilka stron internetowych i stale rozwijałem swoje umiejętności. Mój rozwój zbiegł się z rozwojem sztucznej inteligencji, co szczególnie mnie ekscytuje, bo z AI możliwości są jeszcze większe. Ostatnio stworzyłem predyktor giełdowy oparty na AI, który prezentowany jest w aplikacji webowej i to dopiero początek."
+    },
+    "present": {
+      "title": "Teraźniejszość",
+      "description": "Obecnie ukończyłem studia informatyczne na Queen Mary University of London z wyróżnieniem. Równolegle jestem współzałożycielem LearnTeach.io, platformy wymiany umiejętności opartej na tokenach, będącej w fazie rozwoju. Oferuję także usługi freelance w zakresie web developmentu."
+    },
+    "future": {
+      "title": "Przyszłość",
+      "description": "Moją misją jest integracja AI z web developmentem, aby dostarczać inteligentniejsze i bardziej efektywne rozwiązania. Chętnie podejmę nowe wyzwania zawodowe, by dalej się rozwijać."
+    }
+  },
+  "projects": {
+    "title": "Projekty",
+    "project1": {
+      "title": "GRU - Predyktor Giełdowy",
+      "desc1": "Dane pobrane z YahooFinance",
+      "desc2": "Wyświetlane w aplikacji Streamlit",
+      "desc3": "Stworzone w TensorFlow",
+      "desc4": "Osiągnięto <5% MAPE na wielu oknach testowych"
+    },
+    "project2": {
+      "title": "Full-Stack Aplikacja do Łączenia Hobby",
+      "desc1": "Wykonane w Django i Vue",
+      "desc2": "Dopasowywanie użytkowników na podstawie hobby",
+      "desc3": "Funkcjonalność zaproszeń do znajomych",
+      "desc4": "REST API i filtrowanie AJAX",
+      "desc5": "Frontend w Typescript"
+    },
+    "project3": {
+      "title": "Aplikacja Biznesowa FDM",
+      "desc1": "Aplikacja webowa w React",
+      "desc2": "Projekt dla prawdziwego klienta",
+      "desc3": "Bezpieczne logowanie i wsparcie wielu urządzeń",
+      "desc4": "Wizualny dashboard wydatków",
+      "desc5": "Dostępna w 4 językach"
+    },
+    "project4": {
+      "title": "Prognozowanie pogody",
+      "desc1": "Aplikacja webowa w React",
+      "desc2": "OpenWeather API do prognozy godzinowej/dziennej",
+      "desc3": "Geolokalizacja dla lokalnej pogody",
+      "desc4": "Pozytywne doświadczenie użytkownika"
+    },
+    "project5": {
+      "title": "CNN Klasyfikator Obrazów CIFAR-10",
+      "desc1": "Stworzone w PyTorch",
+      "desc2": ">90% dokładności testowej",
+      "desc3": "Batch Normalization poprawiający generalizację na 60 000 obrazach",
+      "desc4": "Zmniejszone użycie GPU i czas treningu o 40%"
+    },
+    "project6": {
+      "title": "Kalkulator Kalorii",
+      "desc1": "Stworzony w Java Swift",
+      "desc2": "Użytkownik podaje dane osobowe",
+      "desc3": "Użytkownik wybiera swoje cele",
+      "desc4": "Algorytm wylicza ile kalorii powinien spożywać"
+    },
+    "project7": {
+      "title": "Ping Pong",
+      "desc1": "Stworzony w Java Swift",
+      "desc2": "Algorytm sterujący przeciwnikiem na podstawie pozycji piłki",
+      "desc3": "Fizyka gry zaimplementowana",
+      "desc4": "Gra na punkty"
+    },
+    "page1": "1",
+    "page2": "2",
+    "last": "Ostatnia"
+  },
+  "contact": {
+    "title": "Skontaktuj się",
+    "section1": {
+      "title": "Oferta pracy",
+      "content": "Jestem otwarty na rozmowy dotyczące ofert pracy. Jako świeżo upieczony absolwent szukam staży lub programów dla absolwentów, które pozwolą mi zdobyć doświadczenie i rozwinąć umiejętności. Chętnie podejmę się ciekawych projektów, gdzie mogę się uczyć i wnosić wartość do ambitnego zespołu."
+    },
+    "section2": {
+      "title": "Sieć kontaktów",
+      "content": "Networking jest kluczowy w branży IT. Zawsze chętnie poznaję nowych ludzi, z którymi mogę wymienić się doświadczeniami. Niezależnie czy jesteś deweloperem, przedsiębiorcą czy po prostu chcesz dowiedzieć się więcej o programowaniu, chętnie porozmawiam. Umówmy się na rozmowę i zobaczmy dokąd nas zaprowadzi."
+    },
+    "section3": {
+      "title": "Współpraca",
+      "content": "Mam pasję do tworzenia aplikacji webowych rozwiązujących realne problemy. Interesują mnie projekty z zakresu machine learningu lub takie, które stanowią wyzwanie i pozwalają wyjść poza strefę komfortu. Zawsze jestem gotów do pracy zespołowej i wspólnego budowania czegoś wyjątkowego."
+    },
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "Github",
+    "resume": "CV",
+    "footer": "© 2025-obecnie Maksymilian Matusiak. Wszelkie prawa zastrzeżone"
+  },
+  "skills": {
+    "title": "Umiejętności",
+    "frontend": "Front End",
+    "styling": "Stylowanie",
+    "backend": "Back End",
+    "ml": "Uczenie maszynowe i Data Science",
+    "misc": "Różne"
+  },
+  "certificates": {
+    "title": "Certyfikaty",
+    "page1": "1",
+    "page2": "2",
+    "last": "Ostatni"
+  }
+} 

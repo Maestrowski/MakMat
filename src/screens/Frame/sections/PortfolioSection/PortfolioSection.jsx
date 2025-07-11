@@ -1,74 +1,76 @@
 import React, { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { useTranslation } from 'react-i18next';
 
 const PortfolioSection = () => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
 
   const projects = [
     {
-      title: "GRU Stock Market Predictor",
+      title: t('projects.project1.title'),
       description: [
-        "Data gathered from YahooFinance",
-        "Displayed on Streamlit web friendly application",
-        "Engineered in TensorFlow",
-        "Achieved <5% MAPE across multiple test windows",
+        t('projects.project1.desc1'),
+        t('projects.project1.desc2'),
+        t('projects.project1.desc3'),
+        t('projects.project1.desc4'),
       ],
     },
     {
-      title: "Full-Stack Hobby Matching App",
+      title: t('projects.project2.title'),
       description: [
-        "Made in Django and Vue",
-        "Hobby-based user matching",
-        "Friend request functionality",
-        "Implemented REST APIs and AJAX based filtering",
-        "Frontend made in Typescript",
+        t('projects.project2.desc1'),
+        t('projects.project2.desc2'),
+        t('projects.project2.desc3'),
+        t('projects.project2.desc4'),
+        t('projects.project2.desc5'),
       ],
     },
     {
-      title: "FDM Business Expense Application",
+      title: t('projects.project3.title'),
       description: [
-        "React-based web application",
-        "Real-life project made for a real client",
-        "Secure login and multi device support",
-        "Visual dashboard for real-time expenses",
-        "Available in 4 languages",
+        t('projects.project3.desc1'),
+        t('projects.project3.desc2'),
+        t('projects.project3.desc3'),
+        t('projects.project3.desc4'),
+        t('projects.project3.desc5'),
       ],
     },
     {
-      title: "Weather forecaster",
+      title: t('projects.project4.title'),
       description: [
-        "React-based web application",
-        "OpenWeather API for hourly/daily forecast",
-        "Geolocation to include local weather",
-        "Positive User Experience",
+        t('projects.project4.desc1'),
+        t('projects.project4.desc2'),
+        t('projects.project4.desc3'),
+        t('projects.project4.desc4'),
       ],
     },
     {
-      title: "CNN CIFAR-10 Image Classifier",
+      title: t('projects.project5.title'),
       description: [
-        "Engineered in PyTorch",
-        ">90% Test accuracy",
-        "Batch Normalization improving model generalization on 60,000 images",
-        "Reduced GPU usage and training time by 40%",
+        t('projects.project5.desc1'),
+        t('projects.project5.desc2'),
+        t('projects.project5.desc3'),
+        t('projects.project5.desc4'),
       ],
     },
     {
-      title: "Calorie Calculator",
+      title: t('projects.project6.title'),
       description: [
-        "Developed in Java Swift",
-        "User inputs personal details",
-        "User decides their goals",
-        "Based on calculations algorithm tells the user how many caloreis they should consume",
+        t('projects.project6.desc1'),
+        t('projects.project6.desc2'),
+        t('projects.project6.desc3'),
+        t('projects.project6.desc4'),
       ],
     },
     {
-      title: "Ping Pong",
+      title: t('projects.project7.title'),
       description: [
-        "Developed in Java Swift",
-        "Created an algorithm that moves opposition pallet based on ball location",
-        "Physics implemented",
-        "Score-based game",
+        t('projects.project7.desc1'),
+        t('projects.project7.desc2'),
+        t('projects.project7.desc3'),
+        t('projects.project7.desc4'),
       ],
     },
   ];
@@ -92,7 +94,7 @@ const PortfolioSection = () => {
       // This section will now have a transparent background, allowing the gradient from Frame.jsx to show.
       className="w-full min-h-screen text-black dark:text-white flex flex-col justify-center items-center py-12 sm:py-16 md:py-20"
     >
-      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">Projects</h1>
+      <h1 className="text-[#0f52ba] dark:text-[#2563eb] text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{t('projects.title')}</h1>
       <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8">
         {displayedProjects.map((project, index) => (
           <Card
@@ -121,7 +123,7 @@ const PortfolioSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          1
+          {t('projects.page1')}
         </Button>
         <Button
           onClick={() => setCurrentPage(2)}
@@ -131,7 +133,7 @@ const PortfolioSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          2
+          {t('projects.page2')}
         </Button>
         <Button
           onClick={() => setCurrentPage('last')}
@@ -141,7 +143,7 @@ const PortfolioSection = () => {
               : "bg-transparent text-[#0f52ba] border border-[#0f52ba] dark:text-[#2563eb] dark:border-[#2563eb]"
           }
         >
-          Last
+          {t('projects.last')}
         </Button>
       </nav>
     </section>
