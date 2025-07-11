@@ -1,4 +1,53 @@
 {
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "src/screens/Frame/Frame.jsx",
+      "label": "Frame",
+      "routes": [
+        "/"
+      ],
+      "isRoot": true
+    },
+    {
+      "id": "src/screens/MaksAISection/MaksAISection.jsx",
+      "label": "MaksAISection",
+      "routes": [
+        "/maksai"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "src\\screens\\Frame\\sections\\ContactSection\\ContactSection.jsx:92:8-to-src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "source": "src\\screens\\Frame\\Frame.jsx",
+      "target": "src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "data": {
+        "viaRoute": "/maksai",
+        "trigger": {
+          "element": "<Link\n          to=\"/maksai\"\n          className=\"flex flex-col items-center hover:text-[#0f52ba] dark:hover:text-[#2563eb] transition-colors\"\n          title=\"MaksAI\"\n        >\n          <span>MaksAI</span>\n        </Link>",
+          "line": 92,
+          "endLine": 98,
+          "column": 8,
+          "endColumn": 15,
+          "sourceFile": "src\\screens\\Frame\\sections\\ContactSection\\ContactSection.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\screens\\MaksAISection\\MaksAISection.jsx:93:10-to-src\\screens\\Frame\\Frame.jsx",
+      "source": "src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "target": "src\\screens\\Frame\\Frame.jsx",
+      "data": {
+        "viaRoute": "/",
+        "trigger": {
+          "element": "<Link to=\"/\" className=\"text-blue-400 underline text-sm mt-2\">Go back to portfolio</Link>",
+          "line": 93,
+          "endLine": 93,
+          "column": 10,
+          "endColumn": 99,
+          "sourceFile": "src\\screens\\MaksAISection\\MaksAISection.jsx"
+        }
+      }
+    }
+  ]
 }

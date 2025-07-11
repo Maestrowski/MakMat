@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -88,6 +89,13 @@ const ContactSection = () => {
             <span>{label}</span>
           </a>
         ))}
+        <Link
+          to="/maksai"
+          className="flex flex-col items-center hover:text-[#0f52ba] dark:hover:text-[#2563eb] transition-colors"
+          title="MaksAI"
+        >
+          <span>MaksAI</span>
+        </Link>
       </div>
 
       {/* Scroll to Top Button (no changes) */}
