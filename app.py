@@ -8,7 +8,7 @@ import requests
 app = Flask(__name__)
 
 # CORS: Allow only your Vercel frontend domain
-CORS(app, origins=["https://your-vercel-app.vercel.app"])  # <-- Replace with your actual Vercel domain
+CORS(app, origins=["https://maksmatusiak.vercel.app/maksai"])  # <-- Replace with your actual Vercel domain
 
 # Rate limiting: 10 requests per minute per IP
 limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
