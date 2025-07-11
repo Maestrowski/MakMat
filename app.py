@@ -8,7 +8,7 @@ import requests
 app = Flask(__name__)
 
 # CORS: Allow only your Vercel frontend domain
-CORS(app, origins=["https://maksmatusiak.vercel.app/maksai"])  # <-- Replace with your actual Vercel domain
+CORS(app, origins=["https://makmat.vercel.app", "https://makmat.onrender.com"])
 
 # Rate limiting: 10 requests per minute per IP
 limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
@@ -106,7 +106,7 @@ def maksai():
         messages.append({"role": "user", "content": user_message})
         headers = {
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "HTTP-Referer": "https://your-vercel-app.vercel.app",  # <-- Replace with your actual domain
+            "HTTP-Referer": "https://makmat.vercel.app",
             "X-Title": "MaksAI"
         }
         payload = {
