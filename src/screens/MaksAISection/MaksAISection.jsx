@@ -55,7 +55,7 @@ export default function MaksAISection() {
     setInput('');
     setLoading(true);
     try {
-      const res = await fetch('https://makmat.onrender.com', {
+      const res = await fetch('https://makmat.onrender.com/api/maksai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
