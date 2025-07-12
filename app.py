@@ -7,7 +7,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import requests
 import logging
-import random # Import random for potential future use or if you want to implement it in Python
+import random 
 
 app = Flask(__name__)
 

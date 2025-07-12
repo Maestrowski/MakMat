@@ -3,7 +3,3 @@ flask-cors
 flask-limiter
 requests
 gunicorn
-logging
-random
-python-dotenv
-dotenv
