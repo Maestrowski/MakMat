@@ -61,3 +61,34 @@ You can build your storybook for release with:
 ```
 npm run build-storybook
 ```
+
+## Local Development Setup
+
+### 1. Frontend: Environment Variables
+- Create a `.env.local` file in the project root (not committed to git).
+- Add the following line to use your local backend:
+
+```
+VITE_API_URL=http://localhost:5000/api/maksai
+```
+
+- The frontend will use this URL when running locally. In production, it will use the deployed backend URL as a fallback.
+
+### 2. Backend: CORS Configuration
+- Ensure your Flask backend allows CORS from both your deployed frontend and localhost:
+
+```
+CORS(app, origins=[
+    "https://your-frontend.vercel.app",
+    "http://localhost:5173"
+])
+```
+
+- Replace `5173` with your local dev server port if different.
+
+### 3. Running Locally
+- Start your backend (Flask) on port 5000.
+- Start your frontend (Vite/React) on port 5173 (default).
+- The local frontend will call the local backend, and the deployed site will call the deployed backend.
+
+---

@@ -13,3 +13,5 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
+// Vite automatically loads .env, .env.local, etc. No extra config needed for env variables.

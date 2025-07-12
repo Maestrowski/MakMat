@@ -34,15 +34,15 @@
       }
     },
     {
-      "id": "src\\screens\\MaksAISection\\MaksAISection.jsx:93:10-to-src\\screens\\Frame\\Frame.jsx",
+      "id": "src\\screens\\MaksAISection\\MaksAISection.jsx:91:10-to-src\\screens\\Frame\\Frame.jsx",
       "source": "src\\screens\\MaksAISection\\MaksAISection.jsx",
       "target": "src\\screens\\Frame\\Frame.jsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<Link to=\"/\" className=\"text-blue-400 underline text-sm mt-2\">Go back to portfolio</Link>",
-          "line": 93,
-          "endLine": 93,
+          "line": 91,
+          "endLine": 91,
           "column": 10,
           "endColumn": 99,
           "sourceFile": "src\\screens\\MaksAISection\\MaksAISection.jsx"
