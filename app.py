@@ -26,8 +26,8 @@ CORS(app, origins=[
     "http://localhost:5173"
 ], supports_credentials=True)
 
-# Rate limiting: 10 requests per minute per IP
-limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
+
+limiter = Limiter(get_remote_address, app=app, default_limits=["100 per minute"])
 
 # API Configuration
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
@@ -172,7 +172,7 @@ def index():
     return "OK", 200
 
 @app.route('/api/maksai', methods=['POST', 'OPTIONS'])
-@limiter.limit("10 per minute")
+@limiter.limit("30 per minute")
 def maksai():
     if request.method == 'OPTIONS':
         app.logger.info("OPTIONS preflight to /api/maksai")
