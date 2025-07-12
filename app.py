@@ -27,7 +27,7 @@ CORS(app, origins=[
 ], supports_credentials=True)
 
 
-limiter = Limiter(get_remote_address, app=app, default_limits=["100 per minute"])
+limiter = Limiter(get_remote_address, app=app, default_limits=["500 per minute"])
 
 # API Configuration
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
