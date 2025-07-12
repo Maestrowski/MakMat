@@ -172,12 +172,16 @@ def index():
     return "OK", 200
 
 @app.route('/api/maksai', methods=['POST', 'OPTIONS'])
-@limiter.limit("30 per minute")
 def maksai():
     if request.method == 'OPTIONS':
         app.logger.info("OPTIONS preflight to /api/maksai")
         return '', 200
     
+    # Only apply rate limiting to POST requests
+    return handle_maksai_post()
+
+@limiter.limit("500 per minute")
+def handle_maksai_post():
     data = request.get_json()
     user_message = data.get('message', '')
     history = data.get('history', [])
