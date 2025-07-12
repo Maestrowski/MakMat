@@ -27,7 +27,7 @@ export default function MaksAISection() {
   const [messages, setMessages] = useState([
     {
       role: 'ai',
-      content: 'Hi! I am MaksAI, your personal assistant powered by Llama 3.1 405B (OpenRouter). Ask me anything about Maks, his experience, projects, or career!'
+      content: 'Hi! I am MaksAI, your personal assistant powered by DeepSeek R1 Distill Llama 70B (Together.ai). Ask me anything about Maks, his experience, projects, or career!'
     }
   ]);
   const [input, setInput] = useState('');
@@ -88,7 +88,7 @@ export default function MaksAISection() {
         <div className="flex flex-col items-center mb-4">
           <img src={AI_AVATAR} alt="MaksAI Logo" className="w-16 h-16 rounded-full mb-2" />
           <h1 className="text-2xl font-bold">MaksAI</h1>
-          <p className="text-sm text-gray-300 mb-2 text-center">Let\'s talk to MaksAI! Powered by Llama 3.1 405B (OpenRouter). Ask anything about Maks, his experience, or his projects.</p>
+          <p className="text-sm text-gray-300 mb-2 text-center">Let's talk to MaksAI! Powered by DeepSeek R1 Distill Llama 70B (Together.ai). Ask anything about Maks, his experience, or his projects.</p>
           <Link to="/" className="text-blue-400 underline text-sm mt-2">Go back to portfolio</Link>
         </div>
         <div ref={chatRef} className="flex-1 w-full bg-[#23232a] rounded-lg shadow-lg p-6 mb-4 overflow-y-auto" style={{ minHeight: 0, maxHeight: '100%' }}>

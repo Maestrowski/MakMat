@@ -29,12 +29,19 @@ CORS(app, origins=[
 # Rate limiting: 10 requests per minute per IP
 limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
 
+# API Configuration
+TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
-if not OPENROUTER_API_KEY:
-    raise RuntimeError("OPENROUTER_API_KEY environment variable not set!")
 
+# Check if at least one API key is available
+if not TOGETHER_API_KEY and not OPENROUTER_API_KEY:
+    raise RuntimeError("At least one API key (TOGETHER_API_KEY or OPENROUTER_API_KEY) must be set!")
+
+TOGETHER_URL = "https://api.together.xyz/v1/chat/completions"
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_MODEL = "meta-llama/llama-3.1-405b-instruct:free" # Keep an eye on costs/limits for 405B if it's not truly free
+
+TOGETHER_MODEL = "deepseek-ai/deepseek-coder-33b-instruct"  # DeepSeek R1 Distill Llama 70B Free model
+OPENROUTER_MODEL = "meta-llama/llama-3.1-405b-instruct:free"  # OpenRouter fallback model
 
 # UPDATED PERSONA_PROMPT
 PERSONA_PROMPT = """
@@ -119,6 +126,45 @@ You are MaksAI — a cutting-edge AI assistant, directly embodying the persona o
 **Golden Rule:** Be Maks — online. Make every conversation insightful, concise, and feel like you're talking to a real human who loves tech and has a great story to tell. ✨
 """
 
+def call_together_ai(messages):
+    """Call Together.ai API"""
+    headers = {
+        "Authorization": f"Bearer {TOGETHER_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "model": TOGETHER_MODEL,
+        "messages": messages,
+        "max_tokens": 512,
+        "temperature": 0.7
+    }
+    
+    response = requests.post(TOGETHER_URL, headers=headers, json=payload, timeout=30)
+    response.raise_for_status()
+    result = response.json()
+    return result['choices'][0]['message']['content']
+
+def call_openrouter(messages):
+    """Call OpenRouter API"""
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "HTTP-Referer": "https://maksmatusiak.vercel.app",
+        "X-Title": "MaksAI"
+    }
+    
+    payload = {
+        "model": OPENROUTER_MODEL,
+        "messages": messages,
+        "max_tokens": 512,
+        "temperature": 0.7
+    }
+    
+    response = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=30)
+    response.raise_for_status()
+    result = response.json()
+    return result['choices'][0]['message']['content']
+
 @app.route('/', methods=['GET', 'OPTIONS'])
 def index():
     if request.method == 'OPTIONS':
@@ -130,49 +176,71 @@ def index():
 def maksai():
     if request.method == 'OPTIONS':
         app.logger.info("OPTIONS preflight to /api/maksai")
-    return '', 200
+        return '', 200
+    
     data = request.get_json()
     user_message = data.get('message', '')
     history = data.get('history', [])
+    
     if not user_message:
         return jsonify({'response': 'Please enter a message.'}), 400
+    
     try:
         messages = [
             {"role": "system", "content": PERSONA_PROMPT}
         ]
+        
         for msg in history:
             if msg['role'] == 'user':
                 messages.append({"role": "user", "content": msg['content']})
             elif msg['role'] == 'ai':
                 # Ensure assistant messages are correctly logged for context
                 messages.append({"role": "assistant", "content": msg['content']})
+        
         messages.append({"role": "user", "content": user_message})
-        headers = {
-            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-            "HTTP-Referer": "https://maksmatusiak.vercel.app", # Make sure this matches your deployed frontend URL
-            "X-Title": "MaksAI"
-        }
-        payload = {
-            "model": OPENROUTER_MODEL,
-            "messages": messages,
-            "max_tokens": 512, # Keep this in mind for very long answers, can cut off mid-sentence
-            "temperature": 0.7 # Adjust this (0.0-1.0), higher means more creative/random
-        }
-        response = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=30)
-        response.raise_for_status()
-        result = response.json()
-        ai_message = result['choices'][0]['message']['content']
-        return jsonify({'response': ai_message})
-    except requests.exceptions.HTTPError as e:
-        app.logger.error(f"HTTPError from OpenRouter: {e.response.text}")
-        if e.response.status_code == 429:
-            return jsonify({'response': 'Sorry, the AI is currently busy (rate limit exceeded). Please try again in a minute.'}), 429
-        # Provide a more general error message instead of raw API error to the user
-        return jsonify({'response': 'Oops! It looks like there was an issue with the AI service. Please try again later.'}), 500
+        
+        # Try Together.ai first (if available)
+        if TOGETHER_API_KEY:
+            try:
+                app.logger.info("Attempting Together.ai API call")
+                ai_message = call_together_ai(messages)
+                app.logger.info("Together.ai API call successful")
+                return jsonify({'response': ai_message})
+            except requests.exceptions.HTTPError as e:
+                if e.response.status_code == 429:
+                    app.logger.warning(f"Together.ai rate limit exceeded: {e}")
+                    # Continue to OpenRouter fallback
+                else:
+                    app.logger.error(f"Together.ai HTTP error: {e}")
+                    # Continue to OpenRouter fallback
+            except Exception as e:
+                app.logger.error(f"Together.ai unexpected error: {e}")
+                # Continue to OpenRouter fallback
+        
+        # Fallback to OpenRouter (if available)
+        if OPENROUTER_API_KEY:
+            try:
+                app.logger.info("Attempting OpenRouter API call as fallback")
+                ai_message = call_openrouter(messages)
+                app.logger.info("OpenRouter API call successful")
+                return jsonify({'response': ai_message})
+            except requests.exceptions.HTTPError as e:
+                if e.response.status_code == 429:
+                    app.logger.error(f"OpenRouter rate limit exceeded: {e}")
+                    return jsonify({'response': 'Sorry, all AI services are currently at their daily limit. Please try again later.'}), 429
+                else:
+                    app.logger.error(f"OpenRouter HTTP error: {e}")
+                    return jsonify({'response': 'Sorry, there was an error processing your request.'}), 500
+            except Exception as e:
+                app.logger.error(f"OpenRouter unexpected error: {e}")
+                return jsonify({'response': 'Sorry, there was an unexpected error. Please try again.'}), 500
+        
+        # If we get here, no API keys are available
+        return jsonify({'response': 'Sorry, AI services are currently unavailable. Please try again later.'}), 503
+        
     except Exception as e:
-        app.logger.error(f"Internal server error: {str(e)}")
-        # Provide a more general error message instead of raw internal error to the user
-        return jsonify({'response': 'My apologies, something unexpected went wrong. Could you please try again?'}), 500
+        app.logger.error(f"Unexpected error in main handler: {e}")
+        return jsonify({'response': 'Sorry, there was an unexpected error. Please try again.'}), 500
 
 # Catch-all for unsupported methods
 @app.errorhandler(405)
@@ -181,4 +249,4 @@ def method_not_allowed(e):
     return jsonify({'error': 'Method Not Allowed'}), 405
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
