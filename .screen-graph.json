@@ -34,17 +34,17 @@
       }
     },
     {
-      "id": "src\\screens\\MaksAISection\\MaksAISection.jsx:188:12-to-src\\screens\\Frame\\Frame.jsx",
+      "id": "src\\screens\\MaksAISection\\MaksAISection.jsx:92:10-to-src\\screens\\Frame\\Frame.jsx",
       "source": "src\\screens\\MaksAISection\\MaksAISection.jsx",
       "target": "src\\screens\\Frame\\Frame.jsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
-          "element": "<Link to=\"/\" className=\"text-blue-400 underline text-sm\">Go back to portfolio</Link>",
-          "line": 188,
-          "endLine": 188,
-          "column": 12,
-          "endColumn": 96,
+          "element": "<Link to=\"/\" className=\"text-blue-400 underline text-sm mt-2\">Go back to portfolio</Link>",
+          "line": 92,
+          "endLine": 92,
+          "column": 10,
+          "endColumn": 99,
           "sourceFile": "src\\screens\\MaksAISection\\MaksAISection.jsx"
         }
       }

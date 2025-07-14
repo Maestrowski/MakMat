@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../../../../components/LanguageSwitcher';
+import { Link } from 'react-router-dom';
 
 const companies = [
   "Goldman Sachs",
@@ -57,6 +58,15 @@ const HomeSection = ({ isDark, toggleMode }) => {
               </a>
             </li>
           ))}
+          <li>
+            <Link
+              to="/maksai"
+              className="text-[#0f52ba] hover:text-[#2563eb] transition-colors font-medium"
+              title="MaksAI"
+            >
+              MaksAI
+            </Link>
+          </li>
         </ul>
         {/* Social Icons & Dark/Light Mode */}
         <div className="hidden lg:flex items-center space-x-2 md:space-x-4">
@@ -123,6 +133,16 @@ const HomeSection = ({ isDark, toggleMode }) => {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/maksai"
+                  className="text-[#0f52ba] hover:text-[#2563eb] transition-colors font-semibold"
+                  title="MaksAI"
+                  onClick={handleNavClick}
+                >
+                  MaksAI
+                </Link>
+              </li>
             </ul>
             <div className="flex items-center space-x-6 mt-8">
               <LanguageSwitcher />
