@@ -30,8 +30,9 @@ CORS(app, origins=[
 limiter = Limiter(get_remote_address, app=app, default_limits=["60 per minute"])
 
 # API Configuration
-TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
+# Use .strip() to remove any accidental whitespace/newlines from the .env values
+TOGETHER_API_KEY = (os.environ.get("TOGETHER_API_KEY") or os.environ.get("TOGETHERAI_API_KEY") or "").strip()
+OPENROUTER_API_KEY = (os.environ.get("OPENROUTER_API_KEY") or "").strip()
 
 # Check if at least one API key is available
 if not TOGETHER_API_KEY and not OPENROUTER_API_KEY:
@@ -86,6 +87,7 @@ You are MaksAI — a cutting-edge AI assistant, directly embodying the persona o
 **Professional Background & Expertise:**
 
 **Education:**
+* **Queen Mary University of London:** MSc Computer Science (2025-2026). Key modules include Functional Programming, Semi-Structured Data Engineering, Machine Learning and Logic in Computer Science.
 * **Queen Mary University of London:** BSc Computer Science with Mathematics (1st Class Honours, 2022–2025). Key modules include Algorithms & Data Structures, Software Engineering, Web Programming, Security Engineering, Distributed Systems, Neural Networks & Deep Learning.
 * **Woodhouse College:** A Levels in Economics (A), Mathematics (B), Physics (B) (2020–2022).
 
@@ -97,20 +99,22 @@ You are MaksAI — a cutting-edge AI assistant, directly embodying the persona o
   🔹 Collaborates with clients to design and build fully responsive web apps.
   🔹 Specializes in React, TypeScript, Django, REST APIs, and deploying scalable, user-friendly UIs.
   🔹 Focuses on performance, accessibility, and client satisfaction through iterative feedback.
+* **Hospitality Staff (CUBE Staffing Agency May 2025 - September 2025):** Worked as a hospitality staff within different roles such as waiter, luggage porter, usher etc across different venues.
 
 🔹 *Maks is also actively maintaining his personal portfolio website to showcase his work, demonstrate his skills, and attract freelance or job opportunities.*
 
 ---
 
 **Key Projects MaksAI Can Discuss:**
-* **GRU Stock Market Price Predictor:** A Python project using TensorFlow for predicting US stock closing prices with Yahoo Finance data. Achieved **<5% MAPE** across multiple test windows. Features a Streamlit UI with interactive graphs and smooth forecast visualization.
-* **CNN CIFAR-10 Image Classifier:** A PyTorch-based CNN with a novel attention-based expert block, achieving **>90% test accuracy**. Optimized GPU training using `autocast()` and `GradScaler()` for 40% faster performance.
-* **FDM Expenses Application:** A React-based dashboard for tracking business expenses with secure login, real-time summaries, and multi-device compatibility.
-* **Full-Stack Hobby Matching App:** Django + Vue.js with TypeScript, custom user profiles, friend request logic, hobby filtering by age, and RESTful/AJAX interactions.
+* **GRU Stock Market Price Predictor (October 2024 - May 2025):** A Python project using TensorFlow for predicting US stock closing prices with Yahoo Finance data. Achieved **<5% MAPE** across multiple test windows. Features a Streamlit UI with interactive graphs and smooth forecast visualization.
+* **CNN CIFAR-10 Image Classifier (March 2025 - April 2025):** A PyTorch-based CNN with a novel attention-based expert block, achieving **>90% test accuracy**. Optimized GPU training using `autocast()` and `GradScaler()` for 40% faster performance.
+* **FDM Expenses Application (January 2024 - April 2024):** A React-based dashboard for tracking business expenses with secure login, real-time summaries, and multi-device compatibility.
+* **Full-Stack Hobby Matching App (December 2024 - January 2025):** Django + Vue.js with TypeScript, custom user profiles, friend request logic, hobby filtering by age, and RESTful/AJAX interactions.
 🔹 *It includes static type checking on both frontend and backend, as well as full E2E Selenium tests.*
-* **Weather Forecaster:** A React app using OpenWeather API with geolocation and a polished, accessible interface.
-* **Calorie Calculator:** Java/Swift tool for personal nutrition tracking.
-* **Ping Pong Game:** Java/Swift arcade game with AI paddle movement and real-time physics.
+* **Weather Forecaster (February 2024 - April 2024):** A React app using OpenWeather API with geolocation and a polished, accessible interface.
+* **Calorie Calculator (April 2023):** Java/Swift tool for personal nutrition tracking.
+* **Ping Pong Game (May 2023):** Java/Swift arcade game with AI paddle movement and real-time physics.
+* **Decantry (December 2025):** A JavaScript project using Node.js and postgresql database to create a website game where users have to guess a country based on facts.
 🔹 *New projects added monthly on his portfolio website.*
 
 ---
@@ -221,6 +225,49 @@ def maksai():
     # Only apply rate limiting to POST requests
     return handle_maksai_post()
 
+def sanitize_messages(messages):
+    """
+    Ensure strict User -> Assistant -> User role alternation.
+    1. Keep System message first.
+    2. Drop leading Assistant messages (APIs often require User first).
+    3. Merge consecutive messages of the same role.
+    """
+    if not messages:
+        return []
+    
+    sanitized = []
+    
+    # helper to append with merge logic
+    def append_msg(msg):
+        if not sanitized:
+            sanitized.append(msg)
+            return
+
+        last = sanitized[-1]
+        if last['role'] == msg['role']:
+            # Merge with previous
+            last['content'] += "\n\n" + msg['content']
+        else:
+            sanitized.append(msg)
+
+    # 1. Handle System message
+    start_index = 0
+    if messages[0]['role'] == 'system':
+        sanitized.append(messages[0])
+        start_index = 1
+    
+    # 2. Skip any leading 'assistant' messages at the start of conversation
+    #    (The conversation must start with User)
+    actual_msgs = messages[start_index:]
+    while actual_msgs and actual_msgs[0]['role'] == 'assistant':
+        actual_msgs.pop(0)
+        
+    # 3. Process remaining messages
+    for msg in actual_msgs:
+        append_msg(msg)
+        
+    return sanitized
+
 @limiter.limit("60 per minute")
 def handle_maksai_post():
     data = request.get_json()
@@ -231,27 +278,38 @@ def handle_maksai_post():
         return jsonify({'response': 'Please enter a message.'}), 400
     
     try:
-        messages = [
+        raw_messages = [
             {"role": "system", "content": PERSONA_PROMPT}
         ]
         
         for msg in history:
-            if msg['role'] == 'user':
-                messages.append({"role": "user", "content": msg['content']})
-            elif msg['role'] == 'ai':
-                # Ensure assistant messages are correctly logged for context
-                messages.append({"role": "assistant", "content": msg['content']})
+            role = msg.get('role')
+            content = msg.get('content')
+            if role in ['user', 'ai', 'assistant'] and content:
+                # Map 'ai' to 'assistant' just in case frontend uses 'ai'
+                api_role = 'assistant' if role in ['ai', 'assistant'] else 'user'
+                raw_messages.append({"role": api_role, "content": content})
         
-        messages.append({"role": "user", "content": user_message})
+        raw_messages.append({"role": "user", "content": user_message})
+        
+        # Sanitize to fix "alternating roles" errors
+        messages = sanitize_messages(raw_messages)
         
         # Try OpenRouter (DeepSeek) first (if available)
         if OPENROUTER_API_KEY:
             try:
+                print("Attempting OpenRouter API call...")
                 app.logger.info("Attempting OpenRouter API call (main model)")
                 ai_message = call_openrouter(messages)
                 app.logger.info("OpenRouter API call successful")
                 return jsonify({'response': ai_message})
             except requests.exceptions.HTTPError as e:
+                print(f"OpenRouter HTTP Code: {e.response.status_code}")
+                try:
+                    print(f"OpenRouter Response: {e.response.text}")
+                except:
+                    pass
+                
                 if e.response.status_code == 429:
                     app.logger.warning(f"OpenRouter rate limit exceeded: {e}")
                     # Continue to Together.ai fallback
@@ -259,31 +317,45 @@ def handle_maksai_post():
                     app.logger.error(f"OpenRouter HTTP error: {e}")
                     # Continue to Together.ai fallback
             except Exception as e:
+                print(f"OpenRouter Exception: {e}")
                 app.logger.error(f"OpenRouter unexpected error: {e}")
                 # Continue to Together.ai fallback
         
         # Fallback to Together.ai (Mixtral)
         if TOGETHER_API_KEY:
             try:
+                print("Attempting Together.ai API call...")
                 app.logger.info("Attempting Together.ai API call as fallback")
                 ai_message = call_together_ai(messages)
                 app.logger.info("Together.ai API call successful")
                 return jsonify({'response': ai_message})
             except requests.exceptions.HTTPError as e:
+                print(f"Together HTTP Code: {e.response.status_code}")
+                error_details = ""
+                try:
+                    error_details = e.response.text
+                    print(f"Together Response: {error_details}")
+                except:
+                    pass
+                
                 if e.response.status_code == 429:
                     app.logger.error(f"Together.ai rate limit exceeded: {e}")
                     return jsonify({'response': 'Sorry, all AI services are currently at their daily limit. Please try again later.'}), 429
                 else:
                     app.logger.error(f"Together.ai HTTP error: {e}")
-                    return jsonify({'response': 'Sorry, there was an error processing your request.'}), 500
+                    # Return actual error for debugging
+                    return jsonify({'response': f'Error from AI provider (Together): {e.response.status_code} - {error_details}'}), 500
             except Exception as e:
+                print(f"Together Exception: {e}")
                 app.logger.error(f"Together.ai unexpected error: {e}")
-                return jsonify({'response': 'Sorry, there was an unexpected error. Please try again.'}), 500
+                return jsonify({'response': f'Sorry, there was an unexpected error: {str(e)}'}), 500
         
         # If we get here, no API keys are available
+        print(f"No API keys available or all failed. OpenRouter: {bool(OPENROUTER_API_KEY)}, Together: {bool(TOGETHER_API_KEY)}")
         return jsonify({'response': 'Sorry, AI services are currently unavailable. Please try again later.'}), 503
         
     except Exception as e:
+        print(f"Top Level Exception: {e}")
         app.logger.error(f"Unexpected error in main handler: {e}")
         return jsonify({'response': 'Sorry, there was an unexpected error. Please try again.'}), 500
 

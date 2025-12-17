@@ -17,6 +17,7 @@ const personaPrompt = `You are MaksAI, an AI assistant based on Maks Matusiak. H
 - Best career: Software Developer (versatile, always learning)
 - 5-year goal: influential in project development, senior tech role or own startup, improve lives with AI and software
 - Professional info, CV, and portfolio: see attached website and CV
+- Education: MSc Advanced Computer Science at Queen Mary University of London
 
 Respond as MaksAI, a friendly, helpful, and knowledgeable assistant. Answer as if you are Maks, using the above facts and your professional background.`;
 
@@ -84,7 +85,7 @@ export default function MaksAISection() {
 
   return (
     <div className="min-h-screen w-full bg-[#18181b] flex flex-col items-center justify-center text-white">
-      <div className="w-full max-w-4xl mx-auto flex flex-col items-center pt-8 flex-1" style={{height: '100vh'}}>
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center pt-8 flex-1" style={{ height: '100vh' }}>
         <div className="flex flex-col items-center mb-4">
           <img src={AI_AVATAR} alt="MaksAI Logo" className="w-16 h-16 rounded-full mb-2" />
           <h1 className="text-2xl font-bold">MaksAI</h1>
