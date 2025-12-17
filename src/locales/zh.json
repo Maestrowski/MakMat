@@ -91,6 +91,12 @@
       "desc3": "实现物理效果",
       "desc4": "基于得分的游戏"
     },
+    "project8": {
+      "title": "Decantry",
+      "desc1": "基于事实的猜国家游戏",
+      "desc2": "使用Node.js和JavaScript构建，采用PostgreSQL",
+      "desc3": "包含流畅的多人模式"
+    },
     "page1": "1",
     "page2": "2",
     "last": "最后一页"
@@ -121,4 +127,4 @@
     "resume": "简历",
     "footer": "© 2025-至今 Maksymilian Matusiak. 保留所有权利"
   }
-} 
+}

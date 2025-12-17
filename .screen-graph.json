@@ -18,6 +18,38 @@
   ],
   "edges": [
     {
+      "id": "src\\screens\\Frame\\sections\\HomeSection\\HomeSection.jsx:62:12-to-src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "source": "src\\screens\\Frame\\Frame.jsx",
+      "target": "src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "data": {
+        "viaRoute": "/maksai",
+        "trigger": {
+          "element": "<Link\r\n              to=\"/maksai\"\r\n              className=\"text-[#0f52ba] hover:text-[#2563eb] transition-colors font-medium\"\r\n              title=\"MaksAI\"\r\n            >\r\n              MaksAI\r\n            </Link>",
+          "line": 62,
+          "endLine": 68,
+          "column": 12,
+          "endColumn": 19,
+          "sourceFile": "src\\screens\\Frame\\sections\\HomeSection\\HomeSection.jsx"
+        }
+      }
+    },
+    {
+      "id": "src\\screens\\Frame\\sections\\HomeSection\\HomeSection.jsx:137:16-to-src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "source": "src\\screens\\Frame\\Frame.jsx",
+      "target": "src\\screens\\MaksAISection\\MaksAISection.jsx",
+      "data": {
+        "viaRoute": "/maksai",
+        "trigger": {
+          "element": "<Link\r\n                  to=\"/maksai\"\r\n                  className=\"text-[#0f52ba] hover:text-[#2563eb] transition-colors font-semibold\"\r\n                  title=\"MaksAI\"\r\n                  onClick={handleNavClick}\r\n                >\r\n                  MaksAI\r\n                </Link>",
+          "line": 137,
+          "endLine": 144,
+          "column": 16,
+          "endColumn": 23,
+          "sourceFile": "src\\screens\\Frame\\sections\\HomeSection\\HomeSection.jsx"
+        }
+      }
+    },
+    {
       "id": "src\\screens\\Frame\\sections\\ContactSection\\ContactSection.jsx:92:8-to-src\\screens\\MaksAISection\\MaksAISection.jsx",
       "source": "src\\screens\\Frame\\Frame.jsx",
       "target": "src\\screens\\MaksAISection\\MaksAISection.jsx",

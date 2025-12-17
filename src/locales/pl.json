@@ -83,6 +83,12 @@
       "desc3": "Fizyka gry zaimplementowana",
       "desc4": "Gra na punkty"
     },
+    "project8": {
+      "title": "Decantry",
+      "desc1": "Zgadywanie państw na podstawie faktów",
+      "desc2": "Zbudowane przy użyciu Node.js i JavaScript z PostgreSQL",
+      "desc3": "Zawiera płynny tryb wieloosobowy"
+    },
     "page1": "1",
     "page2": "2",
     "last": "Ostatnia"
@@ -121,4 +127,4 @@
     "page2": "2",
     "last": "Ostatni"
   }
-} 
+}

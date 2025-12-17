@@ -95,6 +95,12 @@
       "desc3": "Física implementada",
       "desc4": "Juego basado en puntuación"
     },
+    "project8": {
+      "title": "Decantry",
+      "desc1": "Adivinanza de países basada en hechos",
+      "desc2": "Construido con Node.js y JavaScript usando PostgreSQL",
+      "desc3": "Modo multijugador fluido incluido"
+    },
     "page1": "1",
     "page2": "2",
     "last": "Última"
@@ -127,4 +133,4 @@
     "resume": "Currículum",
     "footer": "© 2025-presente Maksymilian Matusiak. Todos los derechos reservados"
   }
-} 
+}

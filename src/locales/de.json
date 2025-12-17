@@ -91,6 +91,12 @@
       "desc3": "Physik implementiert",
       "desc4": "Punktebasiertes Spiel"
     },
+    "project8": {
+      "title": "Decantry",
+      "desc1": "Länder raten basierend auf Fakten",
+      "desc2": "Erstellt mit Node.js und JavaScript unter Verwendung von PostgreSQL",
+      "desc3": "Nahtloser Mehrspielermodus enthalten"
+    },
     "page1": "1",
     "page2": "2",
     "last": "Letzte"
@@ -121,4 +127,4 @@
     "resume": "Lebenslauf",
     "footer": "© 2025-heute Maksymilian Matusiak. Alle Rechte vorbehalten"
   }
-} 
+}

@@ -83,6 +83,12 @@
       "desc3": "Physics implemented",
       "desc4": "Score-based game"
     },
+    "project8": {
+      "title": "Decantry",
+      "desc1": "Country guess based on facts",
+      "desc2": "Built with Node.js and JavaScript using PostgreSQL",
+      "desc3": "Seamless multiplayer mode included"
+    },
     "page1": "1",
     "page2": "2",
     "last": "Last"
@@ -121,4 +127,4 @@
     "page2": "2",
     "last": "Last"
   }
-} 
+}

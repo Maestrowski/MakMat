@@ -73,6 +73,14 @@ const PortfolioSection = () => {
         t('projects.project7.desc4'),
       ],
     },
+    {
+      title: t('projects.project8.title'),
+      description: [
+        t('projects.project8.desc1'),
+        t('projects.project8.desc2'),
+        t('projects.project8.desc3'),
+      ],
+    },
   ];
 
   const projectsPerPage = 6;
